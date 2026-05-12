@@ -741,6 +741,9 @@
       <div class="mono" style="color:var(--muted)">BUILD3 × <span style="color:var(--otobot)">OTOBOT</span></div>
       <h3 id="modal-title" class="modal-title">Tell us about<br>your <span class="it">idea.</span></h3>
       <form id="contact-form" class="modal-form" novalidate>
+        <input type="hidden" name="access_key" value="41e2c801-6fca-40cc-85de-d9aac431d374">
+        <input type="hidden" name="subject" value="New idea — Build3 × Otobot">
+        <input type="hidden" name="from_name" value="Build3 × Otobot Website">
         <div class="f-row">
           <label class="f">
             <span class="f-lbl mono">First name<em>*</em></span>
@@ -952,21 +955,27 @@ contactForm.addEventListener('submit', function(e) {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending…';
 
-  var subject = encodeURIComponent('New idea from ' + firstName + ' ' + lastName);
-  var body = encodeURIComponent(
-    'Name: ' + firstName + ' ' + lastName + '\n' +
-    (company ? 'Company: ' + company + '\n' : '') +
-    'Email: ' + email + '\n' +
-    (phone ? 'Phone: ' + cc + ' ' + phone + '\n' : '') +
-    '\nIdea:\n' + idea
-  );
-  window.location.href = 'mailto:info@otobot.co?subject=' + subject + '&body=' + body;
+  var formData = new FormData(contactForm);
+  if (phone) formData.set('phone', cc + ' ' + phone);
 
-  setTimeout(function() {
-    doneMsgEl.innerHTML = 'Thanks ' + escapeHtml(firstName) + '. We read every note and write back personally. Keep an eye on <strong>' + escapeHtml(email) + '</strong>.';
-    formWrap.style.display = 'none';
-    donePart.style.display = 'flex';
-  }, 500);
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success) {
+        doneMsgEl.innerHTML = 'Thanks ' + escapeHtml(firstName) + '. We read every note and write back personally. Keep an eye on <strong>' + escapeHtml(email) + '</strong>.';
+        formWrap.style.display = 'none';
+        donePart.style.display = 'flex';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send it <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>';
+        alert('Something went wrong. Please try again or email us at info@otobot.co');
+      }
+    })
+    .catch(function() {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send it <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>';
+      alert('Network error. Please try again or email us at info@otobot.co');
+    });
 });
 
 function escapeHtml(s) {
