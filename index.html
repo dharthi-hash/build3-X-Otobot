@@ -265,9 +265,22 @@
     padding-top:20px;border-top:1px solid var(--rule);font-family:"JetBrains Mono",monospace;
     font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
+  /* Logos */
+  .nav-logo{height:19px;width:auto;display:block;object-fit:contain}
+  .brand-sep{color:var(--muted);font-weight:400;font-size:14px;margin:0 4px;line-height:1}
+  .who-logo{height:36px;width:auto;max-width:180px;display:block;object-fit:contain}
+  .ft-logo{height:16px;width:auto;display:block;object-fit:contain}
+
   /* Util */
   .arrow{display:inline-block;transition:transform .15s}
   .btn:hover .arrow{transform:translateX(2px)}
+  .btn:disabled{opacity:.4;pointer-events:none}
+
+  /* Field validation states */
+  .f input.invalid,.f textarea.invalid,.f select.invalid{border-color:#d94040}
+  .f input.valid,.f textarea.valid{border-color:#3a9c5a}
+  .f-err{font-size:10px;color:#d94040;font-family:"JetBrains Mono",monospace;letter-spacing:.04em;margin-top:2px;display:none}
+  .f input.invalid~.f-err,.f textarea.invalid~.f-err{display:block}
 
   /* ── Contact modal ────────────────────────────────────────────────── */
   .modal-scrim{position:fixed;inset:0;z-index:200;background:rgba(20,20,19,.42);
@@ -327,8 +340,9 @@
 <nav class="nav" id="nav">
   <div class="container nav-row">
     <a href="#" class="brand" id="brand-logo">
-      <span class="brand-mark"><span>B3</span></span>
-      <span class="brand-text">Build3 <span style="color:var(--muted);font-weight:400;margin:0 2px">×</span> <span style="color:var(--otobot)">Otobot</span></span>
+      <img src="build3-logo.png" alt="Build3" class="nav-logo">
+      <span class="brand-sep">×</span>
+      <img src="otobot-logo.png" alt="Otobot" class="nav-logo">
     </a>
     <div class="nav-links">
       <a href="#process">Process</a>
@@ -605,28 +619,26 @@
     <div class="who-grid">
       <a class="who-card" href="https://www.build3.org" target="_blank" rel="noopener">
         <div class="who-top">
-          <span class="brand-mark"><span>B3</span></span>
+          <img src="build3-logo.png" alt="Build3" class="who-logo">
           <span class="mono who-link">VISIT BUILD3
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;display:inline-block" aria-hidden="true">
               <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
             </svg>
           </span>
         </div>
-        <div class="who-name">Build3</div>
-        <div class="who-tag mono">FOUNDER STUDIO</div>
+        <div class="who-tag mono" style="margin-top:8px">FOUNDER STUDIO</div>
         <p class="who-desc">A creative, conscientious, community-empowered startup studio. Build3 helps early-stage founders turn impact ideas into real startups — with end-to-end support, seed capital, mentor-driven programs, and an investor network built around profit <em>and</em> purpose.</p>
       </a>
       <a class="who-card who-card--otobot" href="https://otobot.co" target="_blank" rel="noopener">
         <div class="who-top">
-          <span class="brand-mark brand-mark--otobot"><span>O</span></span>
+          <img src="otobot-logo.png" alt="Otobot" class="who-logo">
           <span class="mono who-link">VISIT OTOBOT
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;display:inline-block" aria-hidden="true">
               <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
             </svg>
           </span>
         </div>
-        <div class="who-name">Otobot</div>
-        <div class="who-tag mono">PRODUCT &amp; ENGINEERING</div>
+        <div class="who-tag mono" style="margin-top:8px">PRODUCT &amp; ENGINEERING</div>
         <p class="who-desc">The product and engineering team behind the build. Customer first, design sharp, CX and UX with care — then we code it, test it, ship it, and hand off something your team can scale.</p>
       </a>
     </div>
@@ -659,8 +671,9 @@
     <div class="ft-grid">
       <div class="ft-brand">
         <a href="#" class="brand">
-          <span class="brand-mark"><span>B3</span></span>
-          Build3 <span style="color:var(--muted);font-weight:400;margin:0 2px">×</span> <span style="color:var(--otobot)">Otobot</span>
+          <img src="build3-logo.png" alt="Build3" class="ft-logo">
+          <span class="brand-sep">×</span>
+          <img src="otobot-logo.png" alt="Otobot" class="ft-logo">
         </a>
         <p class="blurb">A founder-led studio, powered by <span style="color:var(--otobot);font-weight:500">Otobot</span>. We turn raw ideas into shipped products — designed, built, and handed off to scale.</p>
       </div>
@@ -745,6 +758,7 @@
         <label class="f">
           <span class="f-lbl mono">Email<em>*</em></span>
           <input type="email" name="email" required placeholder="you@company.com" autocomplete="email" />
+          <span class="f-err">Please enter a valid email address</span>
         </label>
         <label class="f">
           <span class="f-lbl mono">Phone</span>
@@ -770,6 +784,7 @@
             </select>
             <input type="tel" name="phone" placeholder="00000 00000" autocomplete="tel-national" />
           </div>
+          <span class="f-err">Please enter a valid phone number (digits only, 7–15 digits)</span>
         </label>
         <label class="f">
           <span class="f-lbl mono">Your idea<em>*</em></span>
@@ -778,7 +793,7 @@
         </label>
         <div class="modal-actions">
           <span class="mono" style="color:var(--muted)">WE WRITE BACK — USUALLY WITHIN A FEW DAYS</span>
-          <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">
+          <button type="submit" class="btn btn-primary btn-lg" id="submit-btn" disabled>
             Send it
             <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
@@ -846,27 +861,65 @@ var submitBtn = document.getElementById('submit-btn');
 var doneClose = document.getElementById('modal-done-close');
 var doneMsgEl = document.getElementById('modal-done-msg');
 
+// ── Validation helpers ────────────────────────────────────────────────────
+var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+var phoneRe = /^[\d\s\-\(\)\.]{7,15}$/;
+
+function isEmailValid(v) { return emailRe.test(v.trim()); }
+function isPhoneValid(v) { return v.trim() === '' || phoneRe.test(v.trim()); }
+
+function validateForm() {
+  var f = contactForm.elements;
+  var ok =
+    f.firstName.value.trim() !== '' &&
+    f.lastName.value.trim() !== '' &&
+    f.email.value.trim() !== '' && isEmailValid(f.email.value) &&
+    f.idea.value.trim() !== '' &&
+    isPhoneValid(f.phone.value);
+  submitBtn.disabled = !ok;
+}
+
+function markField(input, valid) {
+  input.classList.toggle('valid', valid);
+  input.classList.toggle('invalid', !valid);
+}
+
+function wireValidation(input, check) {
+  input.addEventListener('input', function () {
+    if (input.value.trim()) markField(input, check(input.value));
+    else { input.classList.remove('valid','invalid'); }
+    validateForm();
+  });
+  input.addEventListener('blur', function () {
+    if (input.value.trim()) markField(input, check(input.value));
+    validateForm();
+  });
+}
+
+var f = contactForm.elements;
+wireValidation(f.firstName,  function(v){ return v.trim().length >= 1; });
+wireValidation(f.lastName,   function(v){ return v.trim().length >= 1; });
+wireValidation(f.email,      function(v){ return isEmailValid(v); });
+wireValidation(f.idea,       function(v){ return v.trim().length >= 1; });
+wireValidation(f.phone,      function(v){ return isPhoneValid(v); });
+
 function openModal() {
-  // Close nav drawer if open
   nav.classList.remove('nav--open');
   navToggle.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = 'hidden';
 
-  // Reset to form state
   contactForm.reset();
+  contactForm.querySelectorAll('input,textarea').forEach(function(el){
+    el.classList.remove('valid','invalid');
+  });
   formWrap.style.display = '';
   donePart.style.display = 'none';
-  submitBtn.disabled = false;
+  submitBtn.disabled = true;
   submitBtn.innerHTML = 'Send it <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>';
 
   scrim.style.display = 'grid';
-  // Announce to screen readers
   scrim.removeAttribute('aria-hidden');
-
-  setTimeout(function () {
-    var firstInput = contactForm.querySelector('input');
-    if (firstInput) firstInput.focus();
-  }, 80);
+  setTimeout(function(){ var i = contactForm.querySelector('input'); if(i) i.focus(); }, 80);
 }
 
 function closeModal() {
@@ -875,51 +928,49 @@ function closeModal() {
   scrim.setAttribute('aria-hidden', 'true');
 }
 
-// Wire all "Talk to the team" buttons
-document.querySelectorAll('.cta-trigger').forEach(function (el) {
-  el.addEventListener('click', openModal);
+document.querySelectorAll('.cta-trigger').forEach(function(el){ el.addEventListener('click', openModal); });
+document.querySelectorAll('.footer-cta-link').forEach(function(el){
+  el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
 });
 
-// Footer "Talk to us" link
-document.querySelectorAll('.footer-cta-link').forEach(function (el) {
-  el.addEventListener('click', function (e) {
-    e.preventDefault();
-    openModal();
-  });
-});
-
-// Close on X, backdrop click, Escape
 modalX.addEventListener('click', closeModal);
-scrim.addEventListener('click', function (e) {
-  if (e.target === scrim) closeModal();
-});
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && scrim.style.display !== 'none') closeModal();
-});
+scrim.addEventListener('click', function(e){ if(e.target === scrim) closeModal(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && scrim.style.display!=='none') closeModal(); });
 doneClose.addEventListener('click', closeModal);
 
-// Form submit
-contactForm.addEventListener('submit', function (e) {
+contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
-
-  var firstName = contactForm.elements.firstName.value.trim();
-  var email = contactForm.elements.email.value.trim();
-  var idea = contactForm.elements.idea.value.trim();
-
-  if (!firstName || !contactForm.elements.lastName.value.trim() || !email || !idea) return;
+  var el = contactForm.elements;
+  var firstName = el.firstName.value.trim();
+  var lastName  = el.lastName.value.trim();
+  var company   = el.company.value.trim();
+  var email     = el.email.value.trim();
+  var phone     = el.phone.value.trim();
+  var cc        = el.countryCode.value;
+  var idea      = el.idea.value.trim();
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending…';
 
-  setTimeout(function () {
+  var subject = encodeURIComponent('New idea from ' + firstName + ' ' + lastName);
+  var body = encodeURIComponent(
+    'Name: ' + firstName + ' ' + lastName + '\n' +
+    (company ? 'Company: ' + company + '\n' : '') +
+    'Email: ' + email + '\n' +
+    (phone ? 'Phone: ' + cc + ' ' + phone + '\n' : '') +
+    '\nIdea:\n' + idea
+  );
+  window.location.href = 'mailto:info@otobot.co?subject=' + subject + '&body=' + body;
+
+  setTimeout(function() {
     doneMsgEl.innerHTML = 'Thanks ' + escapeHtml(firstName) + '. We read every note and write back personally. Keep an eye on <strong>' + escapeHtml(email) + '</strong>.';
     formWrap.style.display = 'none';
     donePart.style.display = 'flex';
-  }, 700);
+  }, 500);
 });
 
 function escapeHtml(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
 </body>
