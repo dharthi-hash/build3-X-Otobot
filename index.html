@@ -404,55 +404,33 @@
       </div>
     </div>
     <div class="stack" aria-hidden="true">
-      <!-- Dashboard card -->
-      <div class="stack-card card-dash">
+      <!-- ConnectTee card -->
+      <div class="stack-card card-dash" style="display:flex;flex-direction:column">
         <div class="mk-head">
           <div class="mk-dots"><i></i><i></i><i></i></div>
-          <div class="mk-tab"><img src="connecttee-logo.png" alt="ConnectTee" style="height:13px;width:auto;vertical-align:middle;opacity:.85" /> / dashboard</div>
+          <div class="mk-tab">CASE 01</div>
           <div style="width:32px"></div>
         </div>
-        <div class="mk-body">
-          <div class="mk-row">
-            <div class="mk-tile"><div class="k">MRR</div><div class="v">$28.4k</div></div>
-            <div class="mk-tile"><div class="k">Signups</div><div class="v">+412</div></div>
-            <div class="mk-tile"><div class="k">Retention</div><div class="v"><span class="acc">71%</span></div></div>
-          </div>
-          <div class="mk-chart">
-            <svg viewBox="0 0 300 90" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.45"/>
-                  <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,70 C30,60 50,40 80,42 C110,44 130,68 160,55 C190,42 210,18 240,22 C265,25 285,12 300,8 L300,90 L0,90 Z" fill="url(#g1)"/>
-              <path d="M0,70 C30,60 50,40 80,42 C110,44 130,68 160,55 C190,42 210,18 240,22 C265,25 285,12 300,8" fill="none" stroke="var(--accent)" stroke-width="1.6"/>
-            </svg>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:clamp(16px,3vw,32px);background:color-mix(in oklab,oklch(0.65 0.10 130) 7%,var(--bg-card))">
+          <img src="connecttee-logo.png" alt="ConnectTee" style="max-width:62%;height:auto;display:block" />
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center">UK · Social Golf Platform</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+            <span class="tag">UX</span><span class="tag">Product</span><span class="tag">MVP · Live</span>
           </div>
         </div>
       </div>
-      <!-- Code card -->
-      <div class="stack-card card-code">
-        <div class="code">
-          <div class="code-head">
-            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block"></span>
-            <img src="hotelbff-logo.png" alt="HotelBFF" style="height:12px;width:auto;vertical-align:middle;opacity:.85" />
-            <span style="margin-left:auto;opacity:.6">main · clean</span>
-          </div>
-          <div class="code-body">
-            <div class="ln"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div>
-            <div>
-              <div><span class="tok-c">// ship the smallest thing that works</span></div>
-              <div><span class="tok-k">export async function</span> <span class="tok-f">checkout</span>(cart) {</div>
-              <div>&nbsp;&nbsp;<span class="tok-k">const</span> session = <span class="tok-k">await</span> stripe.create({</div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;mode: <span class="tok-s">'payment'</span>,</div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;line_items: cart.lines,</div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;success_url: <span class="tok-s">'/done'</span>,</div>
-              <div>&nbsp;&nbsp;})</div>
-              <div>&nbsp;&nbsp;<span class="tok-k">return</span> session.url</div>
-              <div>}</div>
-              <div>&nbsp;</div>
-            </div>
+      <!-- HotelBFF card -->
+      <div class="stack-card card-code" style="display:flex;flex-direction:column">
+        <div class="mk-head">
+          <div class="mk-dots"><i></i><i></i><i></i></div>
+          <div class="mk-tab">CASE 02</div>
+          <div style="width:32px"></div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:clamp(14px,3vw,28px);background:color-mix(in oklab,oklch(0.78 0.09 75) 8%,var(--bg-card))">
+          <img src="hotelbff-logo.png" alt="HotelBFF" style="max-width:72%;height:auto;display:block" />
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center">Hospitality · Sustainability</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+            <span class="tag">Platform Build</span><span class="tag">MVP · Live</span>
           </div>
         </div>
       </div>
@@ -823,7 +801,7 @@
       <div class="ft-col">
         <h5>Contact</h5>
         <ul>
-          <li><a href="mailto:info@otobot.co">info@otobot.co</a></li>
+          <li><a href="mailto:launch@otobot.co">launch@otobot.co</a></li>
           <li><a href="https://www.build3.org" target="_blank" rel="noopener">build3.org</a></li>
           <li><a href="https://otobot.co" target="_blank" rel="noopener">otobot.co</a></li>
           <li class="ft-socials">
