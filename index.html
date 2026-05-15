@@ -3,60 +3,54 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Build3 × Otobot — Founder-led startup studio</title>
-
+<title>Build3 × Otobot — Startup Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
 <style>
   :root{
-    --bg: #f4f0e8;
-    --bg-soft: #ede7db;
-    --bg-card: #faf7f0;
-    --ink: #141413;
-    --ink-2: #2a2823;
-    --muted: #6c665a;
-    --rule: rgba(20,20,19,.12);
-    --rule-strong: rgba(20,20,19,.22);
-    --accent: oklch(0.62 0.15 35);
-    --accent-ink: #ffffff;
-    --otobot: #2a6fdb;
-    --shadow-card: 0 1px 0 rgba(255,255,255,.6) inset, 0 1px 2px rgba(20,20,19,.04), 0 12px 28px -12px rgba(20,20,19,.18), 0 40px 80px -40px rgba(20,20,19,.18);
-    --shadow-soft: 0 1px 0 rgba(255,255,255,.6) inset, 0 6px 18px -8px rgba(20,20,19,.12), 0 20px 60px -30px rgba(20,20,19,.16);
-    --maxw: 1320px;
-    --pad: clamp(20px, 4vw, 56px);
+    --bg:#f4f0e8;--bg-soft:#ede7db;--bg-card:#faf7f0;
+    --ink:#141413;--ink-2:#2a2823;--muted:#6c665a;
+    --rule:rgba(20,20,19,.12);--rule-strong:rgba(20,20,19,.22);
+    --accent:oklch(0.62 0.15 35);--accent-ink:#ffffff;
+    --otobot:#2a6fdb;
+    --shadow-card:0 1px 0 rgba(255,255,255,.6) inset,0 1px 2px rgba(20,20,19,.04),0 12px 28px -12px rgba(20,20,19,.18),0 40px 80px -40px rgba(20,20,19,.18);
+    --shadow-soft:0 1px 0 rgba(255,255,255,.6) inset,0 6px 18px -8px rgba(20,20,19,.12),0 20px 60px -30px rgba(20,20,19,.16);
+    --maxw:1320px;--pad:clamp(20px,4vw,56px);
   }
-
+  html[data-theme="dark"]{
+    --bg:#0f0e0c;--bg-soft:#161412;--bg-card:#1a1814;
+    --ink:#f4f0e8;--ink-2:#d8d2c4;--muted:#8a8478;
+    --rule:rgba(244,240,232,.12);--rule-strong:rgba(244,240,232,.22);
+    --accent-ink:#0f0e0c;
+    --shadow-card:0 1px 0 rgba(255,255,255,.04) inset,0 1px 2px rgba(0,0,0,.4),0 12px 28px -12px rgba(0,0,0,.5),0 40px 80px -40px rgba(0,0,0,.6);
+    --shadow-soft:0 1px 0 rgba(255,255,255,.04) inset,0 6px 18px -8px rgba(0,0,0,.4),0 20px 60px -30px rgba(0,0,0,.5);
+  }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
-    font-family:"Geist", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-family:"Geist",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
     font-feature-settings:"ss01","ss02","cv11";
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-  }
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   body{overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   button{font-family:inherit;cursor:pointer}
-
   .container{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
-
-  .mono{font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  .mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
     font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+  .serif{font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-style:italic;letter-spacing:-.01em}
+  .display{font-family:"Geist",sans-serif;font-weight:700;letter-spacing:-.035em;line-height:.94}
 
-  .serif{font-family:"Instrument Serif", "Times New Roman", serif;font-weight:400;
-    font-style:italic;letter-spacing:-.01em}
-
-  .display{font-family:"Geist", sans-serif;font-weight:700;letter-spacing:-.035em;line-height:.94}
-
-  /* ── Nav ────────────────────────────────────────────────────────────── */
-  .nav{position:sticky;top:0;z-index:50;background:color-mix(in oklab, var(--bg) 84%, transparent);
+  /* ── Nav ── */
+  .nav{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--bg) 84%,transparent);
     backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);
     border-bottom:1px solid var(--rule)}
   .nav-row{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.02em;font-size:17px;flex:0 0 auto}
-  .brand-mark{width:22px;height:22px;border-radius:6px;background:var(--ink);display:grid;place-items:center;
-    color:var(--bg);font-family:"Geist";font-weight:800;font-size:12px;letter-spacing:-.04em}
-  .brand-mark span{transform:translateY(-.5px)}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:-.02em;font-size:17px;flex:0 0 auto}
+  .brand-logo{display:block;height:22px;width:auto;object-fit:contain}
+  .brand-logo--b3{height:20px}
+  .brand-logo--ot{height:22px}
+  html[data-theme="dark"] .brand-logo--b3{filter:invert(1) brightness(1.1)}
+  .brand-x{color:var(--muted);font-weight:300;font-size:18px;line-height:1;display:inline-block;transform:translateY(-1px)}
   .nav-links{display:flex;align-items:center;gap:28px}
   .nav-links a{font-size:13.5px;color:var(--ink-2);opacity:.8;transition:opacity .15s}
   .nav-links a:hover{opacity:1}
@@ -67,11 +61,9 @@
   .nav--open .nav-toggle .nav-toggle-bar:nth-child(1){transform:translateY(3.25px) rotate(45deg)}
   .nav--open .nav-toggle .nav-toggle-bar:nth-child(2){transform:translateY(-3.25px) rotate(-45deg)}
   .nav-drawer{display:none}
-  @media (max-width:880px){
-    .nav-links{display:none}
-    .nav-cta{display:none}
+  @media(max-width:880px){
+    .nav-links{display:none}.nav-cta{display:none}
     .nav-toggle{display:inline-flex}
-    .brand-text{font-size:15px}
     .nav-drawer{display:flex;flex-direction:column;gap:18px;padding:24px 24px 32px;
       border-top:1px solid var(--rule);background:var(--bg);
       position:absolute;left:0;right:0;top:64px;
@@ -81,77 +73,70 @@
     .nav-drawer-cta{align-self:flex-start;margin-top:8px}
   }
 
+  /* ── Buttons ── */
   .btn{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:8px;
     font-size:13.5px;font-weight:500;letter-spacing:-.005em;border:1px solid transparent;
-    transition:transform .12s ease, background .15s, color .15s, border-color .15s;white-space:nowrap}
+    transition:transform .12s ease,background .15s,color .15s,border-color .15s;white-space:nowrap}
   .btn:active{transform:translateY(1px)}
   .btn-primary{background:var(--ink);color:var(--bg)}
   .btn-primary:hover{background:var(--accent);color:var(--accent-ink)}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong)}
-  .btn-ghost:hover{background:color-mix(in oklab, var(--ink) 6%, transparent)}
+  .btn-ghost:hover{background:color-mix(in oklab,var(--ink) 6%,transparent)}
   .btn-lg{height:46px;padding:0 20px;font-size:14.5px;border-radius:9px}
   .btn .arrow{width:14px;height:14px;display:inline-block}
+  .btn:disabled{opacity:.5;pointer-events:none}
+  .arrow{display:inline-block;transition:transform .15s}
+  .btn:hover .arrow{transform:translateX(2px)}
 
-  /* ── Hero ───────────────────────────────────────────────────────────── */
-  .hero{position:relative;padding-top:clamp(48px, 8vw, 96px);padding-bottom:clamp(64px, 10vw, 140px);
-    overflow:hidden}
+  /* ── Hero ── */
+  .hero{position:relative;padding-top:clamp(48px,8vw,96px);padding-bottom:clamp(64px,10vw,140px);overflow:hidden}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,80px);align-items:center}
-  @media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:48px}}
-
+  @media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:48px}}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--muted)}
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);
-    box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent)}
-
-  .h1{font-size:clamp(48px, 7.8vw, 112px);margin:18px 0 0;color:var(--ink)}
-  .h1 .it{font-family:"Instrument Serif", serif;font-style:italic;font-weight:400;letter-spacing:-.02em}
+    box-shadow:0 0 0 4px color-mix(in oklab,var(--accent) 18%,transparent)}
+  .h1{font-size:clamp(48px,7.8vw,112px);margin:18px 0 0;color:var(--ink)}
+  .h1 .it{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;letter-spacing:-.02em}
   .h1 .acc{color:var(--accent)}
-
   .sub{margin:24px 0 0;max-width:46ch;font-size:clamp(16px,1.35vw,18.5px);line-height:1.5;color:var(--ink-2)}
   .hero-ctas{margin-top:32px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 
   /* Layered product cards */
-  .stack{position:relative;height:clamp(420px, 52vw, 600px);perspective:1400px}
+  .stack{position:relative;height:clamp(420px,52vw,600px);perspective:1400px}
   .stack-card{position:absolute;background:var(--bg-card);border-radius:14px;
     box-shadow:var(--shadow-card);overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
-
   .card-dash{top:6%;left:0;width:78%;height:62%;transform:rotate(-3deg) translateZ(0)}
   .card-code{top:34%;right:0;width:62%;height:54%;transform:rotate(4deg)}
   .card-mobile{bottom:0;left:18%;width:36%;height:62%;transform:rotate(-7deg);border-radius:28px}
   .stack:hover .card-dash{transform:rotate(-1.5deg) translate(-6px,-6px)}
   .stack:hover .card-code{transform:rotate(2.5deg) translate(6px,-2px)}
   .stack:hover .card-mobile{transform:rotate(-5deg) translate(-2px,-8px)}
-
   /* Dashboard mock */
   .mk-head{display:flex;align-items:center;justify-content:space-between;
-    padding:12px 16px;border-bottom:1px solid var(--rule);background:color-mix(in oklab, var(--bg-card) 92%, var(--ink))}
+    padding:12px 16px;border-bottom:1px solid var(--rule);background:color-mix(in oklab,var(--bg-card) 92%,var(--ink))}
   .mk-dots{display:flex;gap:6px}
   .mk-dots i{width:9px;height:9px;border-radius:50%;background:var(--rule-strong);display:block}
   .mk-tab{font-size:10.5px;color:var(--muted);font-family:"JetBrains Mono",monospace}
   .mk-body{padding:14px 16px;display:grid;gap:12px}
   .mk-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-  .mk-tile{background:color-mix(in oklab, var(--bg) 50%, var(--bg-card));border-radius:8px;padding:10px 12px}
+  .mk-tile{background:color-mix(in oklab,var(--bg) 50%,var(--bg-card));border-radius:8px;padding:10px 12px}
   .mk-tile .k{font-size:9.5px;color:var(--muted);font-family:"JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
   .mk-tile .v{font-size:18px;font-weight:600;letter-spacing:-.02em;margin-top:4px;color:var(--ink)}
   .mk-tile .v .acc{color:var(--accent)}
-  .mk-chart{height:90px;background:
-    linear-gradient(180deg, transparent 60%, color-mix(in oklab, var(--accent) 22%, transparent)),
-    repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 28px);
-    border-radius:8px;position:relative;overflow:hidden}
+  .mk-chart{height:90px;background:linear-gradient(180deg,transparent 60%,color-mix(in oklab,var(--accent) 22%,transparent)),repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 28px);border-radius:8px;position:relative;overflow:hidden}
   .mk-chart svg{position:absolute;inset:0;width:100%;height:100%}
-
   /* Code mock */
   .code{background:var(--bg-card);height:100%;display:flex;flex-direction:column}
-  .code-head{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--rule);
-    font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted)}
+  .code-head{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--rule);font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted)}
   .code-head .file{color:var(--ink-2)}
-  .code-body{flex:1;padding:14px 14px 14px 0;font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.65;
-    display:grid;grid-template-columns:28px 1fr;color:var(--ink-2);overflow:hidden}
-  .ln{color:color-mix(in oklab, var(--muted) 70%, transparent);text-align:right;padding-right:10px;user-select:none}
+  .code-body{flex:1;padding:14px 14px 14px 0;font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.65;display:grid;grid-template-columns:28px 1fr;color:var(--ink-2);overflow:hidden}
+  .ln{color:color-mix(in oklab,var(--muted) 70%,transparent);text-align:right;padding-right:10px;user-select:none}
   .tok-k{color:var(--accent);font-weight:500}
   .tok-s{color:#7a8f3e}
+  html[data-theme="dark"] .tok-s{color:#a8c269}
   .tok-c{color:var(--muted);font-style:italic}
   .tok-f{color:#3a6ea5}
-
+  html[data-theme="dark"] .tok-f{color:#9ec4f0}
   /* Mobile mock */
   .mob{background:var(--bg-card);height:100%;display:flex;flex-direction:column;overflow:hidden}
   .mob-notch{height:18px;display:flex;justify-content:center;align-items:flex-end}
@@ -164,198 +149,219 @@
   .mob-card .n{font-size:24px;font-weight:700;letter-spacing:-.03em}
   .mob-card .l{font-size:10px;opacity:.7;font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.14em}
   .mob-list{display:flex;flex-direction:column;gap:6px;margin-top:2px}
-  .mob-item{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-2);
-    padding:7px 8px;border-radius:6px;background:color-mix(in oklab, var(--bg) 50%, var(--bg-card))}
+  .mob-item{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-2);padding:7px 8px;border-radius:6px;background:color-mix(in oklab,var(--bg) 50%,var(--bg-card))}
   .mob-item .ok{color:var(--accent)}
-
   /* Floating badges */
-  .float-badge{position:absolute;background:var(--bg-card);border-radius:999px;
-    padding:8px 14px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-soft);
-    font-size:12px;color:var(--ink);font-weight:500;letter-spacing:-.005em}
+  .float-badge{position:absolute;background:var(--bg-card);border-radius:999px;padding:8px 14px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-soft);font-size:12px;color:var(--ink);font-weight:500;letter-spacing:-.005em}
   .float-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
   .badge-1{top:0;right:6%}
   .badge-2{bottom:8%;right:-2%}
 
-  /* ── Section heads ──────────────────────────────────────────────────── */
-  .sec{padding:clamp(72px, 10vw, 140px) 0;position:relative}
+  /* ── Section heads ── */
+  .sec{padding:clamp(72px,10vw,140px) 0;position:relative}
   .sec-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
-  @media (max-width:780px){.sec-head{grid-template-columns:1fr;gap:18px}}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:18px}}
   .sec-num{display:flex;align-items:center;gap:14px;color:var(--muted)}
   .sec-num .n{font-family:"Instrument Serif",serif;font-style:italic;font-size:46px;color:var(--ink);line-height:1}
-  .sec-h2{font-size:clamp(36px, 4.6vw, 64px);font-weight:700;letter-spacing:-.035em;line-height:1.02;margin:14px 0 0}
+  .sec-h2{font-size:clamp(36px,4.6vw,64px);font-weight:700;letter-spacing:-.035em;line-height:1.02;margin:14px 0 0}
   .sec-h2 .it{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
   .sec-lede{font-size:clamp(16px,1.25vw,18px);color:var(--ink-2);line-height:1.55;max-width:52ch}
 
-  /* ── Process ────────────────────────────────────────────────────────── */
+  /* ── Process ── */
   .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  @media (max-width:900px){.process-grid{grid-template-columns:1fr}}
-  .step{position:relative;padding:28px 26px 30px;background:var(--bg-card);border-radius:12px;
-    box-shadow:var(--shadow-soft);min-height:340px;display:flex;flex-direction:column}
-  .step-num{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);
-    letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+  @media(max-width:900px){.process-grid{grid-template-columns:1fr}}
+  .step{position:relative;padding:28px 26px 30px;background:var(--bg-card);border-radius:12px;box-shadow:var(--shadow-soft);min-height:340px;display:flex;flex-direction:column}
+  .step-num{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
   .step-num em{font-style:normal;color:var(--accent)}
   .step-title{margin-top:24px;font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1.05}
   .step-title .it{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
   .step-body{margin-top:14px;color:var(--ink-2);font-size:14.5px;line-height:1.55;max-width:34ch}
   .step-tags{margin-top:auto;padding-top:24px;display:flex;flex-wrap:wrap;gap:6px}
-  .tag{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--ink-2);padding:5px 9px;border-radius:6px;
-    background:color-mix(in oklab, var(--ink) 6%, transparent)}
-
-  /* Step visuals */
-  .step-viz{height:120px;margin-top:18px;border-radius:8px;position:relative;overflow:hidden;
-    background:color-mix(in oklab, var(--bg) 50%, var(--bg-card))}
-  .viz-grid{position:absolute;inset:0;background-image:
-    linear-gradient(var(--rule) 1px, transparent 1px),
-    linear-gradient(90deg, var(--rule) 1px, transparent 1px);background-size:20px 20px}
+  .tag{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);padding:5px 9px;border-radius:6px;background:color-mix(in oklab,var(--ink) 6%,transparent)}
+  .step-viz{height:120px;margin-top:18px;border-radius:8px;position:relative;overflow:hidden;background:color-mix(in oklab,var(--bg) 50%,var(--bg-card))}
+  .viz-grid{position:absolute;inset:0;background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:20px 20px}
   .viz-arc{position:absolute;inset:0}
 
-  /* ── Who Are We ─────────────────────────────────────────────────────── */
+  /* ── Work ── */
+  .work-rows{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:clamp(28px,4vw,48px)}
+  .work-row{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-card);transition:transform .3s ease,box-shadow .3s ease}
+  .work-row:hover{transform:translateY(-4px);box-shadow:var(--shadow-card),0 40px 80px -36px rgba(20,20,19,.32)}
+  .work-row-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(120% 80% at 0% 0%,color-mix(in oklab,var(--work-tint,var(--accent)) 12%,var(--bg-card)) 0%,var(--bg-card) 60%),var(--bg-card)}
+  .work-row-bg::before{content:"";position:absolute;inset:0;opacity:.55;background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px;mask-image:radial-gradient(120% 70% at 100% 100%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(120% 70% at 100% 100%,#000 30%,transparent 75%)}
+  .work-row--olive{--work-tint:oklch(0.65 0.10 130)}
+  .work-row--sand{--work-tint:oklch(0.78 0.09 75)}
+  .work-row-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);padding:clamp(36px,5vw,64px) clamp(28px,4vw,56px);align-items:start}
+  @media(max-width:900px){.work-row-inner{grid-template-columns:1fr;gap:24px;padding:32px 24px}}
+  .work-row--rev .work-side{order:2}
+  .work-row--rev .work-main{order:1}
+  @media(max-width:900px){.work-row--rev .work-side{order:0}.work-row--rev .work-main{order:0}}
+  .work-side{display:flex;flex-direction:column;gap:18px;min-width:0}
+  .work-side-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted)}
+  .work-side-n{font-family:"Instrument Serif",serif;font-style:italic;font-size:32px;color:var(--ink);letter-spacing:0;text-transform:none;line-height:1;font-weight:400}
+  .work-display{margin:8px 0 0;font-family:"Geist",sans-serif;font-weight:700;letter-spacing:-.045em;line-height:.94;color:var(--ink);font-size:clamp(54px,7.4vw,108px);text-wrap:balance}
+  .work-display .it{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--accent);letter-spacing:-.02em}
+  .work-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .work-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid var(--rule-strong);font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);background:color-mix(in oklab,var(--bg-card) 70%,transparent);backdrop-filter:blur(6px)}
+  .work-chip--accent{color:var(--ink);border-color:transparent;background:color-mix(in oklab,var(--work-tint,var(--accent)) 30%,var(--bg-card))}
+  .work-chip-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 22%,transparent)}
+  .work-main{display:flex;flex-direction:column;gap:22px;min-width:0;padding-top:clamp(4px,1vw,12px)}
+  .work-rule{width:36px;height:1px;background:var(--accent)}
+  .work-prose{margin:0;color:var(--ink-2);font-size:clamp(15.5px,1.2vw,17.5px);line-height:1.6;letter-spacing:-.005em;max-width:48ch}
+  .work-prose em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--ink)}
+  .work-meta-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;margin-top:8px;padding-top:22px;border-top:1px dashed var(--rule-strong)}
+  @media(max-width:560px){.work-meta-grid{grid-template-columns:1fr;gap:18px}}
+  .work-meta-k{color:var(--muted);margin-bottom:10px}
+  .work-meta-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .work-url{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:var(--ink);letter-spacing:-.01em;transition:color .15s}
+  .work-url:hover{color:var(--accent)}
+  .work-url svg{width:13px;height:13px}
+
+  /* ── FAQ ── */
+  .faq{position:relative;margin:clamp(40px,6vw,80px) var(--pad) 0;background:#0e0d0b;color:#f4f0e8;border-radius:20px;overflow:hidden;padding:clamp(72px,10vw,128px) 0 clamp(56px,7vw,96px);isolation:isolate}
+  html[data-theme="dark"] .faq{background:#1a1714;border:1px solid rgba(244,240,232,.06)}
+  .faq-glow{position:absolute;inset:auto -10% -40% -10%;height:60%;z-index:0;pointer-events:none;background:radial-gradient(60% 60% at 30% 100%,color-mix(in oklab,var(--accent) 55%,transparent),transparent 70%),radial-gradient(50% 50% at 80% 90%,color-mix(in oklab,var(--otobot) 35%,transparent),transparent 70%);filter:blur(40px);opacity:.55}
+  .faq-inner{position:relative;z-index:1;max-width:1180px;padding-left:clamp(20px,4vw,56px);padding-right:clamp(20px,4vw,56px)}
+  .faq-head{display:grid;grid-template-columns:auto 1fr;column-gap:48px;row-gap:18px;align-items:end;margin-bottom:clamp(48px,7vw,88px);max-width:980px}
+  @media(max-width:780px){.faq-head{grid-template-columns:1fr;gap:14px}}
+  .faq-num{grid-column:1;color:rgba(244,240,232,.55);align-self:start;margin-top:8px}
+  .faq-num .n{color:#f4f0e8;font-family:"Instrument Serif",serif;font-style:italic;font-size:46px;line-height:1}
+  .faq-num .mono{color:rgba(244,240,232,.5)}
+  .faq-title{grid-column:2;margin:0;font-size:clamp(40px,5.4vw,82px);font-weight:700;letter-spacing:-.035em;line-height:1;color:#fafaf6}
+  .faq-title .it{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:color-mix(in oklab,var(--accent) 90%,#fff)}
+  .faq-lede{grid-column:2;margin:14px 0 0;color:rgba(244,240,232,.6);font-size:16.5px;line-height:1.55;max-width:46ch}
+  @media(max-width:780px){.faq-num,.faq-title,.faq-lede{grid-column:1}}
+  .faq-list{list-style:none;padding:0;margin:0;border-top:1px solid rgba(244,240,232,.10)}
+  .faq-item{position:relative;border-bottom:1px solid rgba(244,240,232,.10);transition:background .2s ease}
+  .faq-item:hover{background:rgba(244,240,232,.025)}
+  .faq-q{display:grid;grid-template-columns:64px 1fr 32px;align-items:center;gap:24px;width:100%;padding:clamp(22px,2.6vw,32px) clamp(8px,1.5vw,20px);background:transparent;border:0;color:inherit;text-align:left;cursor:pointer;font:inherit;-webkit-tap-highlight-color:transparent}
+  @media(max-width:560px){.faq-q{grid-template-columns:40px 1fr 24px;gap:16px;padding:20px 4px}}
+  .faq-i{color:rgba(244,240,232,.4);font-family:"Instrument Serif",serif;font-style:italic;font-size:24px;letter-spacing:0;text-transform:none;font-weight:400;line-height:1;text-align:left;transition:color .2s ease}
+  .faq-item:hover .faq-i,.faq-item--open .faq-i{color:color-mix(in oklab,var(--accent) 90%,#fff)}
+  .faq-q-text{font-family:"Geist",sans-serif;font-weight:500;letter-spacing:-.022em;font-size:clamp(20px,2vw,28px);line-height:1.2;color:#f4f0e8;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+  .faq-item:hover .faq-q-text{transform:translateX(4px)}
+  .faq-toggle{position:relative;width:18px;height:18px;justify-self:end;display:block}
+  .faq-toggle-bar{position:absolute;top:50%;left:0;width:18px;height:1.25px;background:rgba(244,240,232,.7);transform:translateY(-50%);transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .25s}
+  .faq-toggle-bar--v{transform:translateY(-50%) rotate(90deg)}
+  .faq-item--open .faq-toggle-bar--v{transform:translateY(-50%) rotate(0deg);opacity:0}
+  .faq-item--open .faq-toggle-bar{background:color-mix(in oklab,var(--accent) 90%,#fff)}
+  .faq-a-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.2,.7,.2,1)}
+  .faq-item--open .faq-a-wrap{grid-template-rows:1fr}
+  .faq-a-wrap>.faq-a{overflow:hidden}
+  .faq-a{padding:0 clamp(8px,1.5vw,20px) 0}
+  .faq-a-rule{height:1px;width:48px;background:color-mix(in oklab,var(--accent) 90%,#fff);opacity:0;transform:translateX(-12px);transition:opacity .3s ease .1s,transform .35s ease .1s;margin-left:88px}
+  @media(max-width:560px){.faq-a-rule{margin-left:56px}}
+  .faq-item--open .faq-a-rule{opacity:1;transform:translateX(0)}
+  .faq-a p{margin:18px 0 clamp(24px,3.5vw,40px);padding-left:88px;color:rgba(244,240,232,.7);font-size:clamp(15.5px,1.25vw,17.5px);line-height:1.6;letter-spacing:-.005em;max-width:64ch;opacity:0;transform:translateY(8px);transition:opacity .35s ease .08s,transform .4s ease .08s}
+  @media(max-width:560px){.faq-a p{padding-left:56px}}
+  .faq-item--open .faq-a p{opacity:1;transform:translateY(0)}
+  .faq-a em{font-family:"Instrument Serif",serif;font-style:italic;color:#fafaf6;font-weight:400}
+  .faq-foot{margin-top:clamp(40px,6vw,72px);display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:28px;border-top:1px solid rgba(244,240,232,.10);flex-wrap:wrap}
+  .faq-foot .mono{color:rgba(244,240,232,.45)}
+  .btn-faq{background:transparent;color:#f4f0e8;border:1px solid rgba(244,240,232,.22)}
+  .btn-faq:hover{background:#fafaf6;color:#0e0d0b;border-color:#fafaf6}
+
+  /* ── Who Are We ── */
   .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  @media (max-width:880px){.who-grid{grid-template-columns:1fr}}
-  .who-card{background:var(--bg-card);border-radius:14px;box-shadow:var(--shadow-card);
-    padding:36px 32px 36px;display:flex;flex-direction:column;gap:14px;min-height:280px;
-    transition:transform .2s ease, box-shadow .2s ease;position:relative;overflow:hidden}
+  @media(max-width:880px){.who-grid{grid-template-columns:1fr}}
+  .who-card{background:var(--bg-card);border-radius:14px;box-shadow:var(--shadow-card);padding:36px 32px 36px;display:flex;flex-direction:column;gap:14px;min-height:280px;transition:transform .2s ease,box-shadow .2s ease;position:relative;overflow:hidden}
   .who-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card),0 30px 60px -30px rgba(20,20,19,.25)}
-  .who-top{display:flex;align-items:center;justify-content:space-between}
+  .who-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .who-tag-top{color:var(--muted)}
+  .who-logo-stage{margin:28px 0 8px;padding:36px 24px;border-radius:14px;background:var(--bg);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;gap:18px;min-height:140px}
+  .who-logo-stage--ot{background:color-mix(in oklab,var(--otobot) 6%,var(--bg))}
+  .who-logo-big{display:block;width:auto;object-fit:contain}
+  .who-logo-big--b3{height:64px}
+  .who-logo-big--ot{height:54px}
+  html[data-theme="dark"] .who-logo-big--b3{filter:invert(1) brightness(1.1)}
+  @media(max-width:560px){.who-logo-big--b3{height:46px}.who-logo-big--ot{height:40px}.who-logo-stage{padding:28px 18px;min-height:120px;gap:12px}}
   .who-link{font-size:11px;color:var(--muted);display:inline-flex;align-items:center;gap:8px;transition:color .15s}
   .who-card:hover .who-link{color:var(--ink)}
   .who-card--otobot:hover .who-link{color:var(--otobot)}
-  .brand-mark--otobot{background:var(--otobot);color:#fff}
-  .who-name{font-size:48px;font-weight:700;letter-spacing:-.035em;line-height:1;margin-top:16px;color:var(--ink)}
-  .who-card--otobot .who-name{color:var(--otobot)}
-  .who-tag{color:var(--muted);margin-top:-4px}
   .who-desc{font-size:14.5px;line-height:1.55;color:var(--ink-2);max-width:38ch;margin-top:auto}
 
-  /* ── CTA ────────────────────────────────────────────────────────────── */
-  .cta{position:relative;margin:0 var(--pad);padding:clamp(56px,8vw,96px) clamp(28px,5vw,64px);
-    background:var(--ink);color:var(--bg);border-radius:18px;overflow:hidden;
-    display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:end}
-  @media (max-width:880px){.cta{grid-template-columns:1fr;margin:0 var(--pad)}}
+  /* ── CTA ── */
+  .cta{position:relative;margin:0 var(--pad);padding:clamp(56px,8vw,96px) clamp(28px,5vw,64px);background:var(--ink);color:var(--bg);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:end}
+  @media(max-width:880px){.cta{grid-template-columns:1fr;margin:0 var(--pad)}}
   .cta-h{font-size:clamp(40px,5.4vw,82px);font-weight:700;letter-spacing:-.035em;line-height:1;margin:0}
-  .cta-h .it{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:color-mix(in oklab, var(--accent) 90%, white)}
+  .cta-h .it{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:color-mix(in oklab,var(--accent) 90%,white)}
   .cta-sub{margin-top:18px;font-size:15px;opacity:.7;max-width:38ch;line-height:1.5}
   .cta .btn-primary{background:var(--bg);color:var(--ink)}
   .cta .btn-primary:hover{background:var(--accent);color:var(--accent-ink)}
   .cta-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
-  @media (min-width:881px){.cta-actions{align-items:flex-end}}
-  .cta-deco{position:absolute;right:-40px;bottom:-40px;width:340px;height:340px;
-    background:radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--accent) 60%, transparent), transparent 70%);
-    filter:blur(20px);pointer-events:none;opacity:.7}
+  @media(min-width:881px){.cta-actions{align-items:flex-end}}
+  .cta-deco{position:absolute;right:-40px;bottom:-40px;width:340px;height:340px;background:radial-gradient(circle at 30% 30%,color-mix(in oklab,var(--accent) 60%,transparent),transparent 70%);filter:blur(20px);pointer-events:none;opacity:.7}
 
-  /* ── Footer ─────────────────────────────────────────────────────────── */
+  /* ── Footer ── */
   footer{padding:64px 0 36px;border-top:1px solid var(--rule);margin-top:clamp(64px,8vw,120px)}
   .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
-  @media (max-width:780px){.ft-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:780px){.ft-grid{grid-template-columns:1fr 1fr}}
   .ft-brand .blurb{margin-top:14px;color:var(--muted);font-size:14px;line-height:1.55;max-width:36ch}
-  .ft-col h5{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 14px}
+  .inline-logo{display:inline-block;height:1em;width:auto;vertical-align:-2px;object-fit:contain}
+  .inline-logo--ot{height:1.05em;vertical-align:-3px}
+  html[data-theme="dark"] .inline-logo--b3{filter:invert(1) brightness(1.1)}
+  .ft-col h5{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 14px}
   .ft-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
   .ft-col a{font-size:14px;color:var(--ink-2);transition:color .15s}
   .ft-col a:hover{color:var(--accent)}
   .ft-socials{display:flex;gap:10px;align-items:center;margin-top:4px}
-  .ft-icon{display:inline-flex;align-items:center;gap:6px;width:auto;height:32px;padding:0 10px;
-    border:1px solid var(--rule);border-radius:6px;color:var(--ink-2);background:transparent;
-    transition:color .15s,border-color .15s,background .15s}
+  .ft-icon{display:inline-flex;align-items:center;gap:6px;width:auto;height:32px;padding:0 10px;border:1px solid var(--rule);border-radius:6px;color:var(--ink-2);background:transparent;transition:color .15s,border-color .15s,background .15s}
   .ft-icon:hover{color:#fff;background:#0A66C2;border-color:#0A66C2}
   .ft-icon--otobot:hover{background:var(--otobot);border-color:var(--otobot)}
   .ft-icon svg{display:block}
   .ft-icon-tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em}
-  .ft-bottom{margin-top:64px;display:flex;align-items:center;justify-content:space-between;
-    padding-top:20px;border-top:1px solid var(--rule);font-family:"JetBrains Mono",monospace;
-    font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .ft-bottom{margin-top:64px;display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--rule);font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .rule{height:1px;background:var(--rule);margin:0 var(--pad)}
 
-  /* Logos */
-  .nav-logo{height:19px;width:auto;display:block;object-fit:contain}
-  .brand-sep{color:var(--muted);font-weight:400;font-size:14px;margin:0 4px;line-height:1}
-  .who-logo{height:36px;width:auto;max-width:180px;display:block;object-fit:contain}
-  .ft-logo{height:16px;width:auto;display:block;object-fit:contain}
-
-  /* Util */
-  .arrow{display:inline-block;transition:transform .15s}
-  .btn:hover .arrow{transform:translateX(2px)}
-  .btn:disabled{opacity:.4;pointer-events:none}
-
-  /* Field validation states */
-  .f input.invalid,.f textarea.invalid,.f select.invalid{border-color:#d94040}
-  .f input.valid,.f textarea.valid{border-color:#3a9c5a}
-  .f-err{font-size:10px;color:#d94040;font-family:"JetBrains Mono",monospace;letter-spacing:.04em;margin-top:2px;display:none}
-  .f input.invalid~.f-err,.f textarea.invalid~.f-err{display:block}
-
-  /* ── Contact modal ────────────────────────────────────────────────── */
-  .modal-scrim{position:fixed;inset:0;z-index:200;background:rgba(20,20,19,.42);
-    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-    display:grid;place-items:center;padding:24px;overflow-y:auto;
-    animation:fadeIn .18s ease}
+  /* ── Contact Modal ── */
+  .modal-scrim{position:fixed;inset:0;z-index:200;background:rgba(20,20,19,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;padding:24px;overflow-y:auto;animation:fadeIn .18s ease}
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  .modal{position:relative;background:var(--bg-card);color:var(--ink);
-    width:min(560px,100%);max-width:560px;border-radius:14px;
-    box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 30px 80px -20px rgba(20,20,19,.5);
-    padding:40px 40px 32px;animation:popIn .22s cubic-bezier(.2,.7,.2,1)}
+  .modal{position:relative;background:var(--bg-card);color:var(--ink);width:min(560px,100%);max-width:560px;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 30px 80px -20px rgba(20,20,19,.5);padding:40px 40px 32px;animation:popIn .22s cubic-bezier(.2,.7,.2,1)}
   @keyframes popIn{from{transform:translateY(8px) scale(.985);opacity:0}to{transform:none;opacity:1}}
-  @media (max-width:560px){.modal{padding:28px 22px 24px;border-radius:12px}}
-  .modal-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:8px;
-    border:0;background:transparent;color:var(--muted);display:grid;place-items:center;cursor:pointer}
-  .modal-x:hover{background:color-mix(in oklab,var(--ink) 6%, transparent);color:var(--ink)}
-  .modal-title{font-size:clamp(28px,3.4vw,40px);font-weight:700;letter-spacing:-.03em;
-    line-height:1.02;margin:8px 0 22px}
+  @media(max-width:560px){.modal{padding:28px 22px 24px;border-radius:12px}}
+  .modal-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:8px;border:0;background:transparent;color:var(--muted);display:grid;place-items:center;cursor:pointer}
+  .modal-x:hover{background:color-mix(in oklab,var(--ink) 6%,transparent);color:var(--ink)}
+  .modal-title{font-size:clamp(28px,3.4vw,40px);font-weight:700;letter-spacing:-.03em;line-height:1.02;margin:8px 0 22px}
   .modal-title .it{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--accent)}
   .modal-sub{color:var(--ink-2);font-size:15px;line-height:1.55;margin:0 0 22px}
   .modal-done{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:8px 0 4px}
-
   .modal-form{display:flex;flex-direction:column;gap:14px}
   .f{display:flex;flex-direction:column;gap:6px}
   .f-lbl{color:var(--muted);font-size:10.5px}
   .f-lbl em{font-style:normal;color:var(--accent);margin-left:3px}
+  .f-err{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.04em;color:var(--accent);margin-top:2px}
+  .f--err input,.f--err textarea,.f--err select{border-color:var(--accent)!important;box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 18%,transparent)!important}
   .f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  @media (max-width:480px){.f-row{grid-template-columns:1fr}}
-  .modal input, .modal textarea, .modal select{
-    font:14px/1.4 "Geist", ui-sans-serif, system-ui, sans-serif;
-    color:var(--ink);background:var(--bg);
-    border:1px solid var(--rule-strong);border-radius:8px;
-    padding:11px 12px;outline:none;width:100%;
-    transition:border-color .15s, box-shadow .15s, background .15s;
-    -webkit-appearance:none;appearance:none}
+  @media(max-width:480px){.f-row{grid-template-columns:1fr}}
+  .modal input,.modal textarea,.modal select{font:14px/1.4 "Geist",ui-sans-serif,system-ui,sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--rule-strong);border-radius:8px;padding:11px 12px;outline:none;width:100%;transition:border-color .15s,box-shadow .15s,background .15s;-webkit-appearance:none;appearance:none}
   .modal textarea{resize:vertical;min-height:96px;font-family:inherit}
-  .modal input:focus, .modal textarea:focus, .modal select:focus{
-    border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 22%, transparent)}
-  .modal input::placeholder, .modal textarea::placeholder{color:var(--muted);opacity:.7}
+  .modal input:focus,.modal textarea:focus,.modal select:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 22%,transparent)}
+  .modal input::placeholder,.modal textarea::placeholder{color:var(--muted);opacity:.7}
   .f-phone{display:grid;grid-template-columns:96px 1fr;gap:8px}
-  .f-phone select{
-    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
-    background-position:calc(100% - 14px) 50%,calc(100% - 9px) 50%;
-    background-size:5px 5px,5px 5px;background-repeat:no-repeat;
-    padding-right:26px}
+  .f-phone select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 14px) 50%,calc(100% - 9px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:26px}
   .modal-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:6px}
-  @media (max-width:480px){
-    .modal-actions{flex-direction:column-reverse;align-items:stretch}
-    .modal-actions .mono{text-align:center}
-    .modal-actions .btn{width:100%;justify-content:center}
-  }
+  @media(max-width:480px){.modal-actions{flex-direction:column-reverse;align-items:stretch}.modal-actions .mono{text-align:center}.modal-actions .btn{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
 
-<!-- ── Nav ──────────────────────────────────────────────────────────────── -->
+<!-- ── Nav ─────────────────────────────────────────────────────────────────── -->
 <nav class="nav" id="nav">
   <div class="container nav-row">
-    <a href="#" class="brand" id="brand-logo">
-      <img src="build3-logo.png" alt="Build3" class="nav-logo">
-      <span class="brand-sep">×</span>
-      <img src="otobot-logo.png" alt="Otobot" class="nav-logo">
+    <a href="#" class="brand" id="brand-link">
+      <img src="build3-logo.png" alt="Build3" class="brand-logo brand-logo--b3" />
+      <span class="brand-x">×</span>
+      <img src="otobot-logo.png" alt="Otobot" class="brand-logo brand-logo--ot" />
     </a>
     <div class="nav-links">
       <a href="#process">Process</a>
+      <a href="#work">Work</a>
       <a href="#about">Who we are</a>
-      <a href="https://www.build3.org" target="_blank" rel="noopener">Build3</a>
-      <a href="https://otobot.co" target="_blank" rel="noopener">Otobot</a>
+      <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
       <button type="button" class="btn btn-primary cta-trigger">
         Talk to the team
-        <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
-        </svg>
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>
       </button>
     </div>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -365,19 +371,17 @@
   </div>
   <div class="nav-drawer" id="nav-drawer">
     <a href="#process">Process</a>
+    <a href="#work">Work</a>
     <a href="#about">Who we are</a>
-    <a href="https://www.build3.org" target="_blank" rel="noopener">Build3</a>
-    <a href="https://otobot.co" target="_blank" rel="noopener">Otobot</a>
+    <a href="#faq">FAQ</a>
     <button type="button" class="btn btn-primary btn-lg nav-drawer-cta cta-trigger">
       Talk to the team
-      <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
-      </svg>
+      <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>
     </button>
   </div>
 </nav>
 
-<!-- ── Hero ─────────────────────────────────────────────────────────────── -->
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="container hero-grid">
     <div>
@@ -386,23 +390,18 @@
         BUILD3 × OTOBOT / FOUNDER-LED STARTUP STUDIO
       </div>
       <h1 class="h1 display">
-        Ideas become<br>
+        Ideas become<br />
         <span class="it">products</span>, <span style="color:var(--otobot)">fast.</span>
       </h1>
       <p class="sub">Turn your raw ideas into shipped MVPs. Product-first execution, hands-on craft, no theatre.</p>
       <div class="hero-ctas">
         <button type="button" class="btn btn-primary btn-lg cta-trigger">
           Talk to the team
-          <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
-          </svg>
+          <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>
         </button>
       </div>
     </div>
-
-    <!-- Layered product cards -->
     <div class="stack" aria-hidden="true">
-
       <!-- Dashboard card -->
       <div class="stack-card card-dash">
         <div class="mk-head">
@@ -412,18 +411,9 @@
         </div>
         <div class="mk-body">
           <div class="mk-row">
-            <div class="mk-tile">
-              <div class="k">MRR</div>
-              <div class="v">$28.4k</div>
-            </div>
-            <div class="mk-tile">
-              <div class="k">Signups</div>
-              <div class="v">+412</div>
-            </div>
-            <div class="mk-tile">
-              <div class="k">Retention</div>
-              <div class="v"><span class="acc">71%</span></div>
-            </div>
+            <div class="mk-tile"><div class="k">MRR</div><div class="v">$28.4k</div></div>
+            <div class="mk-tile"><div class="k">Signups</div><div class="v">+412</div></div>
+            <div class="mk-tile"><div class="k">Retention</div><div class="v"><span class="acc">71%</span></div></div>
           </div>
           <div class="mk-chart">
             <svg viewBox="0 0 300 90" preserveAspectRatio="none">
@@ -439,20 +429,16 @@
           </div>
         </div>
       </div>
-
       <!-- Code card -->
       <div class="stack-card card-code">
         <div class="code">
           <div class="code-head">
-            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block"></span>
             <span class="file">app/checkout.ts</span>
             <span style="margin-left:auto;opacity:.6">main · clean</span>
           </div>
           <div class="code-body">
-            <div class="ln">
-              <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
-              <div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
-            </div>
+            <div class="ln"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div>
             <div>
               <div><span class="tok-c">// ship the smallest thing that works</span></div>
               <div><span class="tok-k">export async function</span> <span class="tok-f">checkout</span>(cart) {</div>
@@ -468,7 +454,6 @@
           </div>
         </div>
       </div>
-
       <!-- Mobile card -->
       <div class="stack-card card-mobile">
         <div class="mob">
@@ -477,14 +462,10 @@
             <div class="mob-hello">SPRINT 03 · DAY 14</div>
             <div class="mob-title">Ship the <span class="it">core</span> loop</div>
             <div class="mob-card">
-              <div>
-                <div class="l">Sprint</div>
-                <div class="n">14/42</div>
-              </div>
+              <div><div class="l">Sprint</div><div class="n">14/42</div></div>
               <svg width="42" height="42" viewBox="0 0 42 42">
                 <circle cx="21" cy="21" r="17" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="3"/>
-                <circle cx="21" cy="21" r="17" fill="none" stroke="var(--accent)" stroke-width="3"
-                  stroke-dasharray="106.8" stroke-dashoffset="71" stroke-linecap="round" transform="rotate(-90 21 21)"/>
+                <circle cx="21" cy="21" r="17" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="106.8" stroke-dashoffset="71" stroke-linecap="round" transform="rotate(-90 21 21)"/>
               </svg>
             </div>
             <div class="mob-list">
@@ -496,17 +477,12 @@
           </div>
         </div>
       </div>
-
-      <!-- Floating badges -->
-      <div class="float-badge badge-1">
-        <span class="dot"></span>
-        Shipping today
-      </div>
+      <!-- Badges -->
+      <div class="float-badge badge-1"><span class="dot"></span>Shipping today</div>
       <div class="float-badge badge-2">
         <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:var(--accent)">—</span>
         42 days to launch
       </div>
-
     </div>
   </div>
 </section>
@@ -517,25 +493,19 @@
     <div class="sec-head">
       <div>
         <div class="sec-num"><span class="n">01</span><span class="mono">PROCESS</span></div>
-        <h2 class="sec-h2">A product-led<br>approach, end<br>to <span class="it">end.</span></h2>
+        <h2 class="sec-h2">A product-led<br />approach, end<br />to <span class="it">end.</span></h2>
       </div>
       <p class="sec-lede">Three phases, one thread: the founder's idea, treated like a real product from the first sketch to the last handoff. Design with UX in mind, build with engineering best practices, connect when it's ready to stand on its own.</p>
     </div>
-
     <div class="process-grid">
-
-      <!-- Step 1: Ideation & Design -->
+      <!-- Step 1 -->
       <div class="step">
-        <div class="step-num">
-          <span>STEP <em>01</em></span>
-          <span>PHASE 01</span>
-        </div>
+        <div class="step-num"><span>STEP <em>01</em></span><span>PHASE 01</span></div>
         <div class="step-viz">
           <div class="viz-grid"></div>
           <svg class="viz-arc" viewBox="0 0 300 120" preserveAspectRatio="none">
             <circle cx="60" cy="60" r="44" fill="none" stroke="var(--rule-strong)" stroke-width="1"/>
-            <circle cx="60" cy="60" r="44" fill="none" stroke="var(--accent)" stroke-width="2"
-              stroke-dasharray="276" stroke-dashoffset="200" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="44" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="276" stroke-dashoffset="200" stroke-linecap="round" transform="rotate(-90 60 60)"/>
             <circle cx="60" cy="60" r="4" fill="var(--accent)"/>
             <line x1="120" y1="60" x2="280" y2="60" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="2 4"/>
             <text x="135" y="50" fill="var(--ink)" style="font:500 11px 'JetBrains Mono',monospace">WEDGE</text>
@@ -544,26 +514,17 @@
         </div>
         <h3 class="step-title">Ideation &amp; <span class="it">design</span></h3>
         <p class="step-body">We start with the founder's idea and turn it into product-first decisions. Sharp UX, clear flows, customer delight designed in from day one — not bolted on later.</p>
-        <div class="step-tags">
-          <span class="tag">Discovery</span>
-          <span class="tag">UX</span>
-          <span class="tag">Flows</span>
-          <span class="tag">Spec</span>
-        </div>
+        <div class="step-tags"><span class="tag">Discovery</span><span class="tag">UX</span><span class="tag">Flows</span><span class="tag">Spec</span></div>
       </div>
-
-      <!-- Step 2: Build -->
+      <!-- Step 2 -->
       <div class="step">
-        <div class="step-num">
-          <span>STEP <em>02</em></span>
-          <span>PHASE 02</span>
-        </div>
+        <div class="step-num"><span>STEP <em>02</em></span><span>PHASE 02</span></div>
         <div class="step-viz">
           <div class="viz-grid"></div>
           <svg class="viz-arc" viewBox="0 0 300 120" preserveAspectRatio="none">
-            <rect x="20"  y="20" width="22" height="80" fill="var(--ink)" opacity="0.85" rx="2"/>
-            <rect x="50"  y="24" width="22" height="72" fill="var(--ink)" opacity="0.73" rx="2"/>
-            <rect x="80"  y="28" width="22" height="64" fill="var(--ink)" opacity="0.61" rx="2"/>
+            <rect x="20" y="20" width="22" height="80" fill="var(--ink)" opacity="0.85" rx="2"/>
+            <rect x="50" y="24" width="22" height="72" fill="var(--ink)" opacity="0.73" rx="2"/>
+            <rect x="80" y="28" width="22" height="64" fill="var(--ink)" opacity="0.61" rx="2"/>
             <rect x="110" y="32" width="22" height="56" fill="var(--ink)" opacity="0.49" rx="2"/>
             <rect x="140" y="36" width="22" height="48" fill="var(--ink)" opacity="0.37" rx="2"/>
             <rect x="180" y="36" width="100" height="50" fill="var(--accent)" rx="3"/>
@@ -572,36 +533,97 @@
         </div>
         <h3 class="step-title">Build with <span class="it">craft</span></h3>
         <p class="step-body">Senior engineers writing real code with real practices — testing, types, observability, the boring things that make a product hold. We ship the smallest version that earns its keep.</p>
-        <div class="step-tags">
-          <span class="tag">Eng</span>
-          <span class="tag">Quality</span>
-          <span class="tag">Tests</span>
-          <span class="tag">Ship</span>
-        </div>
+        <div class="step-tags"><span class="tag">Eng</span><span class="tag">Quality</span><span class="tag">Tests</span><span class="tag">Ship</span></div>
       </div>
-
-      <!-- Step 3: Connect & Scale -->
+      <!-- Step 3 -->
       <div class="step">
-        <div class="step-num">
-          <span>STEP <em>03</em></span>
-          <span>PHASE 03</span>
-        </div>
+        <div class="step-num"><span>STEP <em>03</em></span><span>PHASE 03</span></div>
         <div class="step-viz">
           <div class="viz-grid"></div>
-          <!-- Dot grid: 60 dots in 12-col × 5-row grid, first 38 filled -->
-          <svg class="viz-arc" viewBox="0 0 300 120" preserveAspectRatio="none" id="dots-svg">
-          </svg>
+          <svg class="viz-arc" viewBox="0 0 300 120" preserveAspectRatio="none" id="dots-viz"></svg>
         </div>
         <h3 class="step-title">Connect &amp; <span class="it">scale</span></h3>
         <p class="step-body">We hand off to your team with the playbook intact — architecture, processes, and the relationships you need to scale. We stay on as allies, not gatekeepers.</p>
-        <div class="step-tags">
-          <span class="tag">Handoff</span>
-          <span class="tag">Scale</span>
-          <span class="tag">Allies</span>
-        </div>
+        <div class="step-tags"><span class="tag">Handoff</span><span class="tag">Scale</span><span class="tag">Allies</span></div>
       </div>
-
     </div>
+  </div>
+</section>
+
+<!-- ── Work ──────────────────────────────────────────────────────────────── -->
+<section class="sec" id="work">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num"><span class="n">02</span><span class="mono">SOME OF OUR WORK</span></div>
+        <h2 class="sec-h2">Products we<br />helped <span class="it">build.</span></h2>
+      </div>
+      <p class="sec-lede">Two recent MVPs we've shaped end-to-end — from the first product decisions through to a live, customer-ready platform. Each one started as a founder's idea and shipped as a real product.</p>
+    </div>
+    <ol class="work-rows">
+      <!-- ConnectTee -->
+      <li class="work-row work-row--olive">
+        <div class="work-row-bg" aria-hidden="true"></div>
+        <div class="work-row-inner">
+          <div class="work-side">
+            <div class="work-side-top mono"><span>CASE</span><span class="work-side-n">01</span></div>
+            <h3 class="work-display">Connect<span class="it">Tee</span></h3>
+            <div class="work-chips">
+              <span class="work-chip">UK · SOCIAL GOLF</span>
+              <span class="work-chip work-chip--accent"><span class="work-chip-dot" aria-hidden="true"></span>MVP · LIVE</span>
+            </div>
+          </div>
+          <div class="work-main">
+            <div class="work-rule" aria-hidden="true"></div>
+            <p class="work-prose">A UK-based social golfing platform designed to help golfers <em>discover games, connect with nearby players, and build communities.</em> We helped shape the MVP through product thinking, workflow design, UX, and UI direction.</p>
+            <div class="work-meta-grid">
+              <div>
+                <div class="mono work-meta-k">What we did</div>
+                <div class="work-meta-tags"><span class="tag">Product thinking</span><span class="tag">Workflows</span><span class="tag">UX</span><span class="tag">UI direction</span></div>
+              </div>
+              <div>
+                <div class="mono work-meta-k">Live at</div>
+                <a class="work-url" href="https://www.connect-tee.com/" target="_blank" rel="noopener">
+                  connect-tee.com
+                  <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <!-- HotelBFF -->
+      <li class="work-row work-row--sand work-row--rev">
+        <div class="work-row-bg" aria-hidden="true"></div>
+        <div class="work-row-inner">
+          <div class="work-side">
+            <div class="work-side-top mono"><span>CASE</span><span class="work-side-n">02</span></div>
+            <h3 class="work-display">Hotel<span class="it">BFF</span></h3>
+            <div class="work-chips">
+              <span class="work-chip">HOSPITALITY · SUSTAINABILITY</span>
+              <span class="work-chip work-chip--accent"><span class="work-chip-dot" aria-hidden="true"></span>MVP · LIVE</span>
+            </div>
+          </div>
+          <div class="work-main">
+            <div class="work-rule" aria-hidden="true"></div>
+            <p class="work-prose">A hospitality sustainability platform helping hotels navigate <em>GSTC certification</em> and operational sustainability. We built the complete MVP experience — from product architecture and workflows to UX and platform execution.</p>
+            <div class="work-meta-grid">
+              <div>
+                <div class="mono work-meta-k">What we did</div>
+                <div class="work-meta-tags"><span class="tag">Product architecture</span><span class="tag">Workflows</span><span class="tag">UX</span><span class="tag">Platform build</span></div>
+              </div>
+              <div>
+                <div class="mono work-meta-k">Live at</div>
+                <a class="work-url" href="https://hotelbff.com" target="_blank" rel="noopener">
+                  hotelbff.com
+                  <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -610,37 +632,133 @@
   <div class="container">
     <div class="sec-head">
       <div>
-        <div class="sec-num"><span class="n">02</span><span class="mono">WHO WE ARE</span></div>
-        <h2 class="sec-h2">Two teams,<br>one <span class="it">studio.</span></h2>
+        <div class="sec-num"><span class="n">03</span><span class="mono">WHO WE ARE</span></div>
+        <h2 class="sec-h2">Two teams,<br />one <span class="it">studio.</span></h2>
       </div>
       <p class="sec-lede">Build3 is a founder-facing impact studio. Otobot is the product and engineering team that builds alongside. Together, we turn early ideas into products that ship and last.</p>
     </div>
-
     <div class="who-grid">
       <a class="who-card" href="https://www.build3.org" target="_blank" rel="noopener">
         <div class="who-top">
-          <img src="build3-logo.png" alt="Build3" class="who-logo">
-          <span class="mono who-link">VISIT BUILD3
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;display:inline-block" aria-hidden="true">
-              <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
-            </svg>
-          </span>
+          <span class="mono who-tag-top">FOUNDER STUDIO</span>
+          <span class="mono who-link">VISIT BUILD3 <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg></span>
         </div>
-        <div class="who-tag mono" style="margin-top:8px">FOUNDER STUDIO</div>
+        <div class="who-logo-stage who-logo-stage--b3">
+          <img src="build3-logo.png" alt="Build3" class="who-logo-big who-logo-big--b3" />
+        </div>
         <p class="who-desc">A creative, conscientious, community-empowered startup studio. Build3 helps early-stage founders turn impact ideas into real startups — with end-to-end support, seed capital, mentor-driven programs, and an investor network built around profit <em>and</em> purpose.</p>
       </a>
       <a class="who-card who-card--otobot" href="https://otobot.co" target="_blank" rel="noopener">
         <div class="who-top">
-          <img src="otobot-logo.png" alt="Otobot" class="who-logo">
-          <span class="mono who-link">VISIT OTOBOT
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;display:inline-block" aria-hidden="true">
-              <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
-            </svg>
-          </span>
+          <span class="mono who-tag-top">PRODUCT &amp; ENGINEERING</span>
+          <span class="mono who-link">VISIT OTOBOT <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg></span>
         </div>
-        <div class="who-tag mono" style="margin-top:8px">PRODUCT &amp; ENGINEERING</div>
+        <div class="who-logo-stage who-logo-stage--ot">
+          <img src="otobot-logo.png" alt="Otobot" class="who-logo-big who-logo-big--ot" />
+        </div>
         <p class="who-desc">The product and engineering team behind the build. Customer first, design sharp, CX and UX with care — then we code it, test it, ship it, and hand off something your team can scale.</p>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────────────────────────── -->
+<section class="faq" id="faq">
+  <div class="faq-glow" aria-hidden="true"></div>
+  <div class="container faq-inner">
+    <div class="faq-head">
+      <div class="sec-num faq-num"><span class="n">04</span><span class="mono">QUESTIONS</span></div>
+      <h2 class="faq-title">Things founders<br />often <span class="it">ask.</span></h2>
+      <p class="faq-lede">Short, honest answers. If something here doesn't cover it, send the question over — we'd rather have the conversation.</p>
+    </div>
+    <ol class="faq-list">
+      <li class="faq-item faq-item--open">
+        <button type="button" class="faq-q" aria-expanded="true" aria-controls="faq-a-0">
+          <span class="faq-i">01</span>
+          <span class="faq-q-text">When should founders get in touch?</span>
+          <span class="faq-toggle" aria-hidden="true"><span class="faq-toggle-bar"></span><span class="faq-toggle-bar faq-toggle-bar--v"></span></span>
+        </button>
+        <div id="faq-a-0" class="faq-a-wrap" role="region">
+          <div class="faq-a"><div class="faq-a-rule"></div><p>Earlier than feels comfortable. If you've got a clear problem and a sense of who's hurting from it, that's enough. We do our best work <em>before</em> the deck exists.</p></div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1">
+          <span class="faq-i">02</span>
+          <span class="faq-q-text">How does pricing work?</span>
+          <span class="faq-toggle" aria-hidden="true"><span class="faq-toggle-bar"></span><span class="faq-toggle-bar faq-toggle-bar--v"></span></span>
+        </button>
+        <div id="faq-a-1" class="faq-a-wrap" role="region">
+          <div class="faq-a"><div class="faq-a-rule"></div><p>Early-stage startups operate differently, so we shape the engagement to fit the stage, scope, and long-term vision. We're open to <em>upfront project-based pricing</em>, <em>hybrid equity + execution</em>, or <em>milestone-based</em> structures. The goal is a setup that works for both sides and lets the product actually move forward.</p></div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2">
+          <span class="faq-i">03</span>
+          <span class="faq-q-text">Are you open to equity + execution models?</span>
+          <span class="faq-toggle" aria-hidden="true"><span class="faq-toggle-bar"></span><span class="faq-toggle-bar faq-toggle-bar--v"></span></span>
+        </button>
+        <div id="faq-a-2" class="faq-a-wrap" role="region">
+          <div class="faq-a"><div class="faq-a-rule"></div><p>Yes, for the right founder. We've taken cash, equity, and mixes of both. We don't use equity as a discount lever — only when we genuinely want skin in the game alongside you.</p></div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3">
+          <span class="faq-i">04</span>
+          <span class="faq-q-text">What kinds of products do you usually build?</span>
+          <span class="faq-toggle" aria-hidden="true"><span class="faq-toggle-bar"></span><span class="faq-toggle-bar faq-toggle-bar--v"></span></span>
+        </button>
+        <div id="faq-a-3" class="faq-a-wrap" role="region">
+          <div class="faq-a"><div class="faq-a-rule"></div><p>Software with a real interface. Consumer apps, vertical SaaS, marketplaces, internal tools that became products. If a customer is going to log in and <em>do something</em>, we're a good fit.</p></div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4">
+          <span class="faq-i">05</span>
+          <span class="faq-q-text">What do you not work on?</span>
+          <span class="faq-toggle" aria-hidden="true"><span class="faq-toggle-bar"></span><span class="faq-toggle-bar faq-toggle-bar--v"></span></span>
+        </button>
+        <div id="faq-a-4" class="faq-a-wrap" role="region">
+          <div class="faq-a"><div class="faq-a-rule"></div><p>We stay in our lane. We don't take on <em>deep-tech R&amp;D</em>, hardware products, manufacturing-heavy systems, scientific or research-led product development, or highly regulated enterprise infrastructure. If that's your world, we'll happily point you toward someone better suited.</p></div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5">
+          <span class="faq-i">06</span>
+          <span class="faq-q-text">What happens after the MVP launches?</span>
+          <span class="faq-toggle" aria-hidden="true"><span class="faq-toggle-bar"></span><span class="faq-toggle-bar faq-toggle-bar--v"></span></span>
+        </button>
+        <div id="faq-a-5" class="faq-a-wrap" role="region">
+          <div class="faq-a"><div class="faq-a-rule"></div><p>You own everything — code, design files, infrastructure, accounts. We can stay on for a few weeks of polish, hand off to your team, or help you hire the right first engineer. Your call.</p></div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6">
+          <span class="faq-i">07</span>
+          <span class="faq-q-text">How quickly can an MVP be launched?</span>
+          <span class="faq-toggle" aria-hidden="true"><span class="faq-toggle-bar"></span><span class="faq-toggle-bar faq-toggle-bar--v"></span></span>
+        </button>
+        <div id="faq-a-6" class="faq-a-wrap" role="region">
+          <div class="faq-a"><div class="faq-a-rule"></div><p>Depends on the problem. Simple consumer flows can ship in weeks; deeper platform work takes longer. We won't pad a timeline to look fast, and we won't promise something we can't actually ship.</p></div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7">
+          <span class="faq-i">08</span>
+          <span class="faq-q-text">Why work with your team?</span>
+          <span class="faq-toggle" aria-hidden="true"><span class="faq-toggle-bar"></span><span class="faq-toggle-bar faq-toggle-bar--v"></span></span>
+        </button>
+        <div id="faq-a-7" class="faq-a-wrap" role="region">
+          <div class="faq-a"><div class="faq-a-rule"></div><p>We've been founders, designers, and engineers — not consultants. We make the decisions you wish you had a second pair of hands for, and we ship instead of advising.</p></div>
+        </div>
+      </li>
+    </ol>
+    <div class="faq-foot">
+      <span class="mono">STILL CURIOUS?</span>
+      <button type="button" class="btn btn-faq btn-lg cta-trigger">
+        Ask us anything
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -651,15 +769,13 @@
     <div class="cta-deco" aria-hidden="true"></div>
     <div>
       <div class="mono" style="color:rgba(255,255,255,.6);margin-bottom:18px">BUILD3 × <span style="color:#7fa9ee">OTOBOT</span></div>
-      <h2 class="cta-h">Got an idea?<br>Let's make<br>it <span class="it">real.</span></h2>
+      <h2 class="cta-h">Got an idea?<br />Let's make<br />it <span class="it">real.</span></h2>
       <p class="cta-sub">Napkin sketch, voice note, half a thought — send it. We'll write back.</p>
     </div>
     <div class="cta-actions">
       <button type="button" class="btn btn-primary btn-lg cta-trigger">
         Talk to the team
-        <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
-        </svg>
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>
       </button>
     </div>
   </div>
@@ -671,19 +787,19 @@
     <div class="ft-grid">
       <div class="ft-brand">
         <a href="#" class="brand">
-          <img src="build3-logo.png" alt="Build3" class="ft-logo">
-          <span class="brand-sep">×</span>
-          <img src="otobot-logo.png" alt="Otobot" class="ft-logo">
+          <img src="build3-logo.png" alt="Build3" class="brand-logo brand-logo--b3" />
+          <span class="brand-x">×</span>
+          <img src="otobot-logo.png" alt="Otobot" class="brand-logo brand-logo--ot" />
         </a>
-        <p class="blurb">A founder-led studio, powered by <span style="color:var(--otobot);font-weight:500">Otobot</span>. We turn raw ideas into shipped products — designed, built, and handed off to scale.</p>
+        <p class="blurb">A founder-led studio, powered by <img src="otobot-logo.png" alt="Otobot" class="inline-logo inline-logo--ot" />. We turn raw ideas into shipped products — designed, built, and handed off to scale.</p>
       </div>
       <div class="ft-col">
         <h5>Studio</h5>
         <ul>
           <li><a href="#process">Process</a></li>
+          <li><a href="#work">Work</a></li>
           <li><a href="#about">Who we are</a></li>
-          <li><a href="https://www.build3.org" target="_blank" rel="noopener">Build3</a></li>
-          <li><a href="https://otobot.co" target="_blank" rel="noopener">Otobot</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -701,18 +817,12 @@
           <li><a href="https://www.build3.org" target="_blank" rel="noopener">build3.org</a></li>
           <li><a href="https://otobot.co" target="_blank" rel="noopener">otobot.co</a></li>
           <li class="ft-socials">
-            <a href="https://www.linkedin.com/company/build3/" target="_blank" rel="noopener"
-               aria-label="Build3 on LinkedIn" title="Build3 on LinkedIn" class="ft-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
-              </svg>
+            <a href="https://www.linkedin.com/company/build3/" target="_blank" rel="noopener" aria-label="Build3 on LinkedIn" class="ft-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
               <span class="ft-icon-tag">B3</span>
             </a>
-            <a href="https://www.linkedin.com/company/otobot-technologies/" target="_blank" rel="noopener"
-               aria-label="Otobot on LinkedIn" title="Otobot on LinkedIn" class="ft-icon ft-icon--otobot">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
-              </svg>
+            <a href="https://www.linkedin.com/company/otobot-technologies/" target="_blank" rel="noopener" aria-label="Otobot on LinkedIn" class="ft-icon ft-icon--otobot">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
               <span class="ft-icon-tag">OT</span>
             </a>
           </li>
@@ -729,124 +839,100 @@
 
 <!-- ── Contact Modal ─────────────────────────────────────────────────────── -->
 <div class="modal-scrim" id="modal-scrim" style="display:none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal" id="modal" role="document">
+  <div class="modal" role="document">
     <button class="modal-x" id="modal-x" aria-label="Close" type="button">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-        <path d="M3 3l8 8M11 3l-8 8"/>
-      </svg>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg>
     </button>
-
+    <!-- Success state -->
+    <div id="modal-done" class="modal-done" style="display:none">
+      <div class="mono" style="color:var(--muted)">MESSAGE SENT</div>
+      <h3 class="modal-title">We'll be in <span class="it">touch.</span></h3>
+      <p class="modal-sub" id="modal-done-msg">Thanks. We read every note and write back personally — usually within a few days.</p>
+      <button type="button" class="btn btn-primary btn-lg" id="modal-done-close">Close</button>
+    </div>
     <!-- Form state -->
     <div id="modal-form-wrap">
       <div class="mono" style="color:var(--muted)">BUILD3 × <span style="color:var(--otobot)">OTOBOT</span></div>
-      <h3 id="modal-title" class="modal-title">Tell us about<br>your <span class="it">idea.</span></h3>
+      <h3 id="modal-title" class="modal-title">Tell us about<br />your <span class="it">idea.</span></h3>
       <form id="contact-form" class="modal-form" novalidate>
-        <input type="hidden" name="access_key" value="41e2c801-6fca-40cc-85de-d9aac431d374">
-        <input type="hidden" name="subject" value="New idea — Build3 × Otobot">
-        <input type="hidden" name="from_name" value="Build3 × Otobot Website">
         <div class="f-row">
-          <label class="f">
+          <label class="f" id="f-firstName">
             <span class="f-lbl mono">First name<em>*</em></span>
-            <input name="firstName" required autocomplete="given-name" placeholder="Ada" />
+            <input type="text" name="firstName" autocomplete="given-name" required />
+            <span class="f-err"></span>
           </label>
-          <label class="f">
+          <label class="f" id="f-lastName">
             <span class="f-lbl mono">Last name<em>*</em></span>
-            <input name="lastName" required autocomplete="family-name" placeholder="Lovelace" />
+            <input type="text" name="lastName" autocomplete="family-name" required />
+            <span class="f-err"></span>
           </label>
         </div>
         <label class="f">
           <span class="f-lbl mono">Company</span>
-          <input name="company" placeholder="Optional" autocomplete="organization" />
+          <input type="text" name="company" placeholder="Optional" autocomplete="organization" />
         </label>
-        <label class="f">
+        <label class="f" id="f-email">
           <span class="f-lbl mono">Email<em>*</em></span>
-          <input type="email" name="email" required placeholder="you@company.com" autocomplete="email" />
-          <span class="f-err">Please enter a valid email address</span>
+          <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+          <span class="f-err"></span>
         </label>
-        <label class="f">
+        <label class="f" id="f-phone">
           <span class="f-lbl mono">Phone</span>
           <div class="f-phone">
-            <select name="countryCode" autocomplete="tel-country-code">
-              <option>+1</option><option>+7</option><option>+20</option><option>+27</option>
-              <option>+30</option><option>+31</option><option>+32</option><option>+33</option>
-              <option>+34</option><option>+36</option><option>+39</option><option>+40</option>
-              <option>+41</option><option>+43</option><option>+44</option><option>+45</option>
-              <option>+46</option><option>+47</option><option>+48</option><option>+49</option>
-              <option>+51</option><option>+52</option><option>+54</option><option>+55</option>
-              <option>+56</option><option>+57</option><option>+58</option><option>+60</option>
-              <option>+61</option><option>+62</option><option>+63</option><option>+64</option>
-              <option>+65</option><option>+66</option><option>+81</option><option>+82</option>
-              <option>+84</option><option>+86</option><option>+90</option><option selected>+91</option>
-              <option>+92</option><option>+94</option><option>+95</option><option>+98</option>
-              <option>+212</option><option>+213</option><option>+216</option><option>+234</option>
-              <option>+254</option><option>+351</option><option>+353</option><option>+358</option>
-              <option>+380</option><option>+420</option><option>+421</option><option>+852</option>
-              <option>+880</option><option>+886</option><option>+962</option><option>+965</option>
-              <option>+966</option><option>+968</option><option>+971</option><option>+972</option>
-              <option>+974</option>
+            <select name="countryCode">
+              <option value="+1">+1</option><option value="+7">+7</option><option value="+20">+20</option><option value="+27">+27</option><option value="+30">+30</option><option value="+31">+31</option><option value="+32">+32</option><option value="+33">+33</option><option value="+34">+34</option><option value="+36">+36</option><option value="+39">+39</option><option value="+40">+40</option><option value="+41">+41</option><option value="+43">+43</option><option value="+44">+44</option><option value="+45">+45</option><option value="+46">+46</option><option value="+47">+47</option><option value="+48">+48</option><option value="+49">+49</option><option value="+51">+51</option><option value="+52">+52</option><option value="+54">+54</option><option value="+55">+55</option><option value="+56">+56</option><option value="+57">+57</option><option value="+58">+58</option><option value="+60">+60</option><option value="+61">+61</option><option value="+62">+62</option><option value="+63">+63</option><option value="+64">+64</option><option value="+65">+65</option><option value="+66">+66</option><option value="+81">+81</option><option value="+82">+82</option><option value="+84">+84</option><option value="+86">+86</option><option value="+90">+90</option><option value="+91" selected>+91</option><option value="+92">+92</option><option value="+94">+94</option><option value="+95">+95</option><option value="+98">+98</option><option value="+212">+212</option><option value="+213">+213</option><option value="+216">+216</option><option value="+234">+234</option><option value="+254">+254</option><option value="+351">+351</option><option value="+353">+353</option><option value="+358">+358</option><option value="+380">+380</option><option value="+420">+420</option><option value="+421">+421</option><option value="+852">+852</option><option value="+880">+880</option><option value="+886">+886</option><option value="+962">+962</option><option value="+965">+965</option><option value="+966">+966</option><option value="+968">+968</option><option value="+971">+971</option><option value="+972">+972</option><option value="+974">+974</option>
             </select>
-            <input type="tel" name="phone" placeholder="00000 00000" autocomplete="tel-national" />
+            <input type="tel" name="phone" placeholder="00000 00000" />
           </div>
-          <span class="f-err">Please enter a valid phone number (digits only, 7–15 digits)</span>
+          <span class="f-err"></span>
         </label>
-        <label class="f">
+        <label class="f" id="f-idea">
           <span class="f-lbl mono">Your idea<em>*</em></span>
-          <textarea name="idea" rows="4" required
-            placeholder="A sentence, a paragraph, a napkin sketch in words — whatever you've got."></textarea>
+          <textarea name="idea" rows="4" placeholder="A sentence, a paragraph, a napkin sketch in words — whatever you've got." required></textarea>
+          <span class="f-err"></span>
         </label>
         <div class="modal-actions">
-          <span class="mono" style="color:var(--muted)">WE WRITE BACK — USUALLY WITHIN A FEW DAYS</span>
+          <span class="mono" id="form-status" style="color:var(--muted)">WE WRITE BACK — USUALLY WITHIN A FEW DAYS</span>
           <button type="submit" class="btn btn-primary btn-lg" id="submit-btn" disabled>
             Send it
-            <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/>
-            </svg>
+            <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>
           </button>
         </div>
       </form>
-    </div>
-
-    <!-- Success state (hidden by default) -->
-    <div id="modal-done" class="modal-done" style="display:none">
-      <div class="mono" style="color:var(--muted)">MESSAGE SENT</div>
-      <h3 class="modal-title">We'll be in <span class="it">touch.</span></h3>
-      <p class="modal-sub" id="modal-done-msg">Thanks. We read every note and write back personally.</p>
-      <button type="button" class="btn btn-primary btn-lg" id="modal-done-close">Close</button>
     </div>
   </div>
 </div>
 
 <script>
-// ── Dot grid (Step 3 visual) ──────────────────────────────────────────────
-(function () {
-  var svg = document.getElementById('dots-svg');
+// ── Dots SVG (step 3) ─────────────────────────────────────────────────────
+(function() {
+  var svg = document.getElementById('dots-viz');
   if (!svg) return;
-  var circles = '';
+  var html = '';
   for (var i = 0; i < 60; i++) {
     var x = 14 + (i % 12) * 24;
     var y = 14 + Math.floor(i / 12) * 22;
     var on = i < 38;
-    circles += '<circle cx="' + x + '" cy="' + y + '" r="' + (on ? 3.6 : 2.2) + '" fill="' +
-      (on ? 'var(--ink)' : 'var(--rule-strong)') + '" opacity="' + (on ? 1 : 0.8) + '"/>';
+    html += '<circle cx="' + x + '" cy="' + y + '" r="' + (on ? 3.6 : 2.2) + '" fill="' + (on ? 'var(--ink)' : 'var(--rule-strong)') + '" opacity="' + (on ? 1 : 0.8) + '"/>';
   }
-  circles += '<circle cx="254" cy="58" r="14" fill="var(--accent)"/>';
-  svg.innerHTML = circles;
+  html += '<circle cx="254" cy="58" r="14" fill="var(--accent)"/>';
+  svg.innerHTML = html;
 })();
 
-// ── Nav hamburger ─────────────────────────────────────────────────────────
+// ── Nav ───────────────────────────────────────────────────────────────────
 var nav = document.getElementById('nav');
 var navToggle = document.getElementById('nav-toggle');
 var navDrawer = document.getElementById('nav-drawer');
 
-navToggle.addEventListener('click', function () {
+navToggle.addEventListener('click', function() {
   var open = nav.classList.toggle('nav--open');
-  navToggle.setAttribute('aria-expanded', open);
+  navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   document.body.style.overflow = open ? 'hidden' : '';
 });
 
-navDrawer.addEventListener('click', function (e) {
-  if (e.target.tagName === 'A' || e.target.closest('.cta-trigger')) {
+navDrawer.addEventListener('click', function(e) {
+  if (e.target.tagName === 'A') {
     nav.classList.remove('nav--open');
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.setAttribute('aria-label', 'Open menu');
@@ -854,132 +940,213 @@ navDrawer.addEventListener('click', function (e) {
   }
 });
 
-// ── Contact modal ─────────────────────────────────────────────────────────
+// ── FAQ Accordion ─────────────────────────────────────────────────────────
+document.querySelectorAll('.faq-item').forEach(function(item) {
+  item.querySelector('.faq-q').addEventListener('click', function() {
+    var isOpen = item.classList.contains('faq-item--open');
+    document.querySelectorAll('.faq-item').forEach(function(el) {
+      el.classList.remove('faq-item--open');
+      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('faq-item--open');
+      item.querySelector('.faq-q').setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// ── Modal ─────────────────────────────────────────────────────────────────
 var scrim = document.getElementById('modal-scrim');
 var modalX = document.getElementById('modal-x');
 var formWrap = document.getElementById('modal-form-wrap');
-var donePart = document.getElementById('modal-done');
+var modalDone = document.getElementById('modal-done');
 var contactForm = document.getElementById('contact-form');
 var submitBtn = document.getElementById('submit-btn');
-var doneClose = document.getElementById('modal-done-close');
+var modalDoneClose = document.getElementById('modal-done-close');
 var doneMsgEl = document.getElementById('modal-done-msg');
+var formStatus = document.getElementById('form-status');
 
-// ── Validation helpers ────────────────────────────────────────────────────
-var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-var phoneRe = /^[\d\s\-\(\)\.]{7,15}$/;
-
-function isEmailValid(v) { return emailRe.test(v.trim()); }
-function isPhoneValid(v) { return v.trim() === '' || phoneRe.test(v.trim()); }
-
-function validateForm() {
-  var f = contactForm.elements;
-  var ok =
-    f.firstName.value.trim() !== '' &&
-    f.lastName.value.trim() !== '' &&
-    f.email.value.trim() !== '' && isEmailValid(f.email.value) &&
-    f.idea.value.trim() !== '' &&
-    isPhoneValid(f.phone.value);
-  submitBtn.disabled = !ok;
-}
-
-function markField(input, valid) {
-  input.classList.toggle('valid', valid);
-  input.classList.toggle('invalid', !valid);
-}
-
-function wireValidation(input, check) {
-  input.addEventListener('input', function () {
-    if (input.value.trim()) markField(input, check(input.value));
-    else { input.classList.remove('valid','invalid'); }
-    validateForm();
-  });
-  input.addEventListener('blur', function () {
-    if (input.value.trim()) markField(input, check(input.value));
-    validateForm();
-  });
-}
-
-var f = contactForm.elements;
-wireValidation(f.firstName,  function(v){ return v.trim().length >= 1; });
-wireValidation(f.lastName,   function(v){ return v.trim().length >= 1; });
-wireValidation(f.email,      function(v){ return isEmailValid(v); });
-wireValidation(f.idea,       function(v){ return v.trim().length >= 1; });
-wireValidation(f.phone,      function(v){ return isPhoneValid(v); });
+var ARROW = '<svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>';
 
 function openModal() {
   nav.classList.remove('nav--open');
   navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.setAttribute('aria-label', 'Open menu');
   document.body.style.overflow = 'hidden';
-
   contactForm.reset();
-  contactForm.querySelectorAll('input,textarea').forEach(function(el){
-    el.classList.remove('valid','invalid');
-  });
+  clearAllErrors();
   formWrap.style.display = '';
-  donePart.style.display = 'none';
+  modalDone.style.display = 'none';
   submitBtn.disabled = true;
-  submitBtn.innerHTML = 'Send it <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>';
-
+  submitBtn.innerHTML = 'Send it ' + ARROW;
+  setStatus('WE WRITE BACK — USUALLY WITHIN A FEW DAYS', false);
   scrim.style.display = 'grid';
-  scrim.removeAttribute('aria-hidden');
-  setTimeout(function(){ var i = contactForm.querySelector('input'); if(i) i.focus(); }, 80);
+  setTimeout(function() {
+    var first = contactForm.querySelector('input');
+    if (first) first.focus();
+  }, 80);
 }
 
 function closeModal() {
   scrim.style.display = 'none';
   document.body.style.overflow = '';
-  scrim.setAttribute('aria-hidden', 'true');
 }
 
-document.querySelectorAll('.cta-trigger').forEach(function(el){ el.addEventListener('click', openModal); });
-document.querySelectorAll('.footer-cta-link').forEach(function(el){
-  el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+document.querySelectorAll('.cta-trigger').forEach(function(el) {
+  el.addEventListener('click', openModal);
+});
+document.querySelectorAll('.footer-cta-link').forEach(function(el) {
+  el.addEventListener('click', function(e) { e.preventDefault(); openModal(); });
+});
+modalX.addEventListener('click', closeModal);
+modalDoneClose.addEventListener('click', closeModal);
+scrim.addEventListener('click', function(e) { if (e.target === scrim) closeModal(); });
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && scrim.style.display !== 'none') closeModal();
 });
 
-modalX.addEventListener('click', closeModal);
-scrim.addEventListener('click', function(e){ if(e.target === scrim) closeModal(); });
-document.addEventListener('keydown', function(e){ if(e.key==='Escape' && scrim.style.display!=='none') closeModal(); });
-doneClose.addEventListener('click', closeModal);
+// ── Validation ────────────────────────────────────────────────────────────
+var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+var touched = {};
 
+function getError(name, value) {
+  if (name === 'firstName' || name === 'lastName' || name === 'idea') {
+    return value.trim() ? '' : 'Required';
+  }
+  if (name === 'email') {
+    if (!value.trim()) return 'Required';
+    return emailRe.test(value.trim()) ? '' : 'Enter a valid email';
+  }
+  if (name === 'phone') {
+    var d = value.replace(/\D/g, '');
+    return value.trim() && (d.length < 6 || d.length > 15) ? 'Enter a valid phone number' : '';
+  }
+  return '';
+}
+
+function setFieldError(input, err) {
+  var wrapper = input.closest('.f');
+  if (!wrapper) return;
+  var errEl = wrapper.querySelector('.f-err');
+  if (err) {
+    wrapper.classList.add('f--err');
+    if (errEl) errEl.textContent = err;
+  } else {
+    wrapper.classList.remove('f--err');
+    if (errEl) errEl.textContent = '';
+  }
+}
+
+function clearAllErrors() {
+  document.querySelectorAll('#contact-form .f').forEach(function(f) {
+    f.classList.remove('f--err');
+    var e = f.querySelector('.f-err');
+    if (e) e.textContent = '';
+  });
+  touched = {};
+}
+
+function isFormValid() {
+  var el = contactForm.elements;
+  var phone = el.phone ? el.phone.value : '';
+  var d = phone.replace(/\D/g, '');
+  var phoneOk = !phone.trim() || (d.length >= 6 && d.length <= 15);
+  return (
+    el.firstName.value.trim() &&
+    el.lastName.value.trim() &&
+    el.email.value.trim() && emailRe.test(el.email.value.trim()) &&
+    el.idea.value.trim() &&
+    phoneOk
+  );
+}
+
+function setStatus(text, isError) {
+  if (formStatus) {
+    formStatus.textContent = text;
+    formStatus.style.color = isError ? 'var(--accent)' : 'var(--muted)';
+  }
+}
+
+['firstName', 'lastName', 'email', 'idea'].forEach(function(name) {
+  var input = contactForm.elements[name];
+  if (!input) return;
+  input.addEventListener('blur', function() {
+    touched[name] = true;
+    setFieldError(input, getError(name, input.value));
+    submitBtn.disabled = !isFormValid();
+  });
+  input.addEventListener('input', function() {
+    if (touched[name]) setFieldError(input, getError(name, input.value));
+    submitBtn.disabled = !isFormValid();
+  });
+});
+
+var phoneInput = contactForm.elements.phone;
+if (phoneInput) {
+  phoneInput.addEventListener('blur', function() {
+    touched.phone = true;
+    setFieldError(phoneInput, getError('phone', phoneInput.value));
+    submitBtn.disabled = !isFormValid();
+  });
+  phoneInput.addEventListener('input', function() {
+    if (touched.phone) setFieldError(phoneInput, getError('phone', phoneInput.value));
+    submitBtn.disabled = !isFormValid();
+  });
+}
+
+// ── Form Submit (Web3Forms) ───────────────────────────────────────────────
 contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
-  var el = contactForm.elements;
-  var firstName = el.firstName.value.trim();
-  var lastName  = el.lastName.value.trim();
-  var company   = el.company.value.trim();
-  var email     = el.email.value.trim();
-  var phone     = el.phone.value.trim();
-  var cc        = el.countryCode.value;
-  var idea      = el.idea.value.trim();
+  ['firstName', 'lastName', 'email', 'phone', 'idea'].forEach(function(n) { touched[n] = true; });
+  ['firstName', 'lastName', 'email', 'idea'].forEach(function(name) {
+    var input = contactForm.elements[name];
+    if (input) setFieldError(input, getError(name, input.value));
+  });
+  if (phoneInput) setFieldError(phoneInput, getError('phone', phoneInput.value));
+  if (!isFormValid()) return;
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending…';
 
-  var formData = new FormData(contactForm);
-  if (phone) formData.set('phone', cc + ' ' + phone);
+  var el = contactForm.elements;
+  var firstName = el.firstName.value.trim();
+  var lastName  = el.lastName.value.trim();
+  var phone     = el.phone ? el.phone.value.trim() : '';
+  var cc        = el.countryCode ? el.countryCode.value : '';
 
-  fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
-    .then(function(res) { return res.json(); })
+  var fd = new FormData();
+  fd.append('access_key', '41e2c801-6fca-40cc-85de-d9aac431d374');
+  fd.append('subject', 'New lead from ' + firstName + ' ' + lastName);
+  fd.append('from_name', 'Build3 × Otobot Website');
+  fd.append('First name', firstName);
+  fd.append('Last name', lastName);
+  fd.append('Company', el.company.value.trim() || '—');
+  fd.append('Email', el.email.value.trim());
+  fd.append('Phone', phone ? cc + ' ' + phone : '—');
+  fd.append('Idea', el.idea.value.trim());
+
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
+    .then(function(r) { return r.json(); })
     .then(function(data) {
       if (data.success) {
-        doneMsgEl.innerHTML = 'Thanks ' + escapeHtml(firstName) + '. We read every note and write back personally. Keep an eye on <strong>' + escapeHtml(email) + '</strong>.';
+        doneMsgEl.innerHTML = 'Thanks ' + escHtml(firstName) + '. We read every note and write back personally — usually within a few days.';
         formWrap.style.display = 'none';
-        donePart.style.display = 'flex';
+        modalDone.style.display = 'flex';
       } else {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Send it <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>';
-        alert('Something went wrong. Please try again or email us at info@otobot.co');
+        submitBtn.innerHTML = 'Send it ' + ARROW;
+        setStatus("COULDN’T SEND — TRY AGAIN OR EMAIL LAUNCH@OTOBOT.CO", true);
       }
     })
     .catch(function() {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Send it <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"/></svg>';
-      alert('Network error. Please try again or email us at info@otobot.co');
+      submitBtn.innerHTML = 'Send it ' + ARROW;
+      setStatus("COULDN’T SEND — TRY AGAIN OR EMAIL LAUNCH@OTOBOT.CO", true);
     });
 });
 
-function escapeHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
 </body>
