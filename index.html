@@ -819,7 +819,7 @@
       <div class="ft-col">
         <h5>Contact</h5>
         <ul>
-          <li><a href="mailto:info@otobot.co">info@otobot.co</a></li>
+          <li><a href="mailto:launch@otobot.co">launch@otobot.co</a></li>
           <li><a href="https://www.build3.org" target="_blank" rel="noopener">build3.org</a></li>
           <li><a href="https://otobot.co" target="_blank" rel="noopener">otobot.co</a></li>
           <li class="ft-socials">
@@ -838,7 +838,7 @@
     <div class="ft-bottom">
       <span>© 2026 BUILD3 STUDIO × <span style="color:var(--otobot)">OTOBOT</span></span>
       <span></span>
-      <span>TERMS · PRIVACY</span>
+      <span><a href="privacy.html" style="color:inherit">PRIVACY</a> · <a href="terms.html" style="color:inherit">TERMS</a></span>
     </div>
   </div>
 </footer>
@@ -1100,54 +1100,53 @@ if (phoneInput) {
   });
 }
 
-// ── Form Submit (Web3Forms) ───────────────────────────────────────────────
-contactForm.addEventListener('submit', function(e) {
+// ── Form Submit (formsubmit.co) ───────────────────────────────────────────
+contactForm.addEventListener(‘submit’, function(e) {
   e.preventDefault();
-  ['firstName', 'lastName', 'email', 'phone', 'idea'].forEach(function(n) { touched[n] = true; });
-  ['firstName', 'lastName', 'email', 'idea'].forEach(function(name) {
+  [‘firstName’, ‘lastName’, ‘email’, ‘phone’, ‘idea’].forEach(function(n) { touched[n] = true; });
+  [‘firstName’, ‘lastName’, ‘email’, ‘idea’].forEach(function(name) {
     var input = contactForm.elements[name];
     if (input) setFieldError(input, getError(name, input.value));
   });
-  if (phoneInput) setFieldError(phoneInput, getError('phone', phoneInput.value));
+  if (phoneInput) setFieldError(phoneInput, getError(‘phone’, phoneInput.value));
   if (!isFormValid()) return;
 
   submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending…';
+  submitBtn.textContent = ‘Sending…’;
 
   var el = contactForm.elements;
   var firstName = el.firstName.value.trim();
   var lastName  = el.lastName.value.trim();
-  var phone     = el.phone ? el.phone.value.trim() : '';
-  var cc        = el.countryCode ? el.countryCode.value : '';
+  var phone     = el.phone ? el.phone.value.trim() : ‘’;
+  var cc        = el.countryCode ? el.countryCode.value : ‘’;
 
-  var fd = new FormData();
-  fd.append('access_key', '41e2c801-6fca-40cc-85de-d9aac431d374');
-  fd.append('subject', 'New lead from ' + firstName + ' ' + lastName);
-  fd.append('from_name', 'Build3 × Otobot Website');
-  fd.append('First name', firstName);
-  fd.append('Last name', lastName);
-  fd.append('Company', el.company.value.trim() || '—');
-  fd.append('Email', el.email.value.trim());
-  fd.append('Phone', phone ? cc + ' ' + phone : '—');
-  fd.append('Idea', el.idea.value.trim());
+  var payload = {
+    _subject: ‘New lead from ‘ + firstName + ‘ ‘ + lastName,
+    _template: ‘table’,
+    _captcha: ‘false’,
+    ‘First name’: firstName,
+    ‘Last name’: lastName,
+    ‘Company’: el.company.value.trim() || ‘—‘,
+    ‘Email’: el.email.value.trim(),
+    ‘Phone’: phone ? cc + ‘ ‘ + phone : ‘—‘,
+    ‘Idea’: el.idea.value.trim()
+  };
 
-  fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.success) {
-        doneMsgEl.innerHTML = 'Thanks ' + escHtml(firstName) + '. We read every note and write back personally — usually within a few days.';
-        formWrap.style.display = 'none';
-        modalDone.style.display = 'flex';
-      } else {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Send it ' + ARROW;
-        setStatus("COULDN’T SEND — TRY AGAIN OR EMAIL LAUNCH@OTOBOT.CO", true);
-      }
+  fetch(‘https://formsubmit.co/ajax/info@otobot.co’, {
+    method: ‘POST’,
+    headers: { ‘Content-Type’: ‘application/json’, ‘Accept’: ‘application/json’ },
+    body: JSON.stringify(payload)
+  })
+    .then(function(r) {
+      if (!r.ok) throw new Error(‘send failed’);
+      doneMsgEl.innerHTML = ‘Thanks ‘ + escHtml(firstName) + ‘. We read every note and write back personally — usually within a few days.’;
+      formWrap.style.display = ‘none’;
+      modalDone.style.display = ‘flex’;
     })
     .catch(function() {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Send it ' + ARROW;
-      setStatus("COULDN’T SEND — TRY AGAIN OR EMAIL LAUNCH@OTOBOT.CO", true);
+      submitBtn.innerHTML = ‘Send it ‘ + ARROW;
+      setStatus("COULDN’T SEND — TRY AGAIN OR EMAIL INFO@OTOBOT.CO", true);
     });
 });
 
