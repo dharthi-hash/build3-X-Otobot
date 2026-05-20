@@ -819,7 +819,7 @@
       <div class="ft-col">
         <h5>Contact</h5>
         <ul>
-          <li><a href="mailto:info@otobot.co">info@otobot.co</a></li>
+          <li><a href="mailto:launch@otobot.co">launch@otobot.co</a></li>
           <li><a href="https://www.build3.org" target="_blank" rel="noopener">build3.org</a></li>
           <li><a href="https://otobot.co" target="_blank" rel="noopener">otobot.co</a></li>
           <li class="ft-socials">
@@ -1101,53 +1101,53 @@ if (phoneInput) {
 }
 
 // ── Form Submit (Web3Forms) ───────────────────────────────────────────────
-contactForm.addEventListener(‘submit’, function(e) {
+contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
-  [‘firstName’, ‘lastName’, ‘email’, ‘phone’, ‘idea’].forEach(function(n) { touched[n] = true; });
-  [‘firstName’, ‘lastName’, ‘email’, ‘idea’].forEach(function(name) {
+  ['firstName', 'lastName', 'email', 'phone', 'idea'].forEach(function(n) { touched[n] = true; });
+  ['firstName', 'lastName', 'email', 'idea'].forEach(function(name) {
     var input = contactForm.elements[name];
     if (input) setFieldError(input, getError(name, input.value));
   });
-  if (phoneInput) setFieldError(phoneInput, getError(‘phone’, phoneInput.value));
+  if (phoneInput) setFieldError(phoneInput, getError('phone', phoneInput.value));
   if (!isFormValid()) return;
 
   submitBtn.disabled = true;
-  submitBtn.textContent = ‘Sending…’;
+  submitBtn.textContent = 'Sending…';
 
   var el = contactForm.elements;
   var firstName = el.firstName.value.trim();
   var lastName  = el.lastName.value.trim();
-  var phone     = el.phone ? el.phone.value.trim() : ‘’;
-  var cc        = el.countryCode ? el.countryCode.value : ‘’;
+  var phone     = el.phone ? el.phone.value.trim() : '';
+  var cc        = el.countryCode ? el.countryCode.value : '';
 
   var fd = new FormData();
-  fd.append(‘access_key’, ‘41e2c801-6fca-40cc-85de-d9aac431d374’);
-  fd.append(‘subject’, ‘New lead from ‘ + firstName + ‘ ‘ + lastName);
-  fd.append(‘from_name’, ‘Build3 × Otobot Website’);
-  fd.append(‘First name’, firstName);
-  fd.append(‘Last name’, lastName);
-  fd.append(‘Company’, el.company.value.trim() || ‘—‘);
-  fd.append(‘Email’, el.email.value.trim());
-  fd.append(‘Phone’, phone ? cc + ‘ ‘ + phone : ‘—‘);
-  fd.append(‘Idea’, el.idea.value.trim());
+  fd.append('access_key', '41e2c801-6fca-40cc-85de-d9aac431d374');
+  fd.append('subject', 'New lead from ' + firstName + ' ' + lastName);
+  fd.append('from_name', 'Build3 × Otobot Website');
+  fd.append('First name', firstName);
+  fd.append('Last name', lastName);
+  fd.append('Company', el.company.value.trim() || '—');
+  fd.append('Email', el.email.value.trim());
+  fd.append('Phone', phone ? cc + ' ' + phone : '—');
+  fd.append('Idea', el.idea.value.trim());
 
-  fetch(‘https://api.web3forms.com/submit’, { method: ‘POST’, body: fd })
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (data.success) {
-        doneMsgEl.innerHTML = ‘Thanks ‘ + escHtml(firstName) + ‘. We read every note and write back personally — usually within a few days.’;
-        formWrap.style.display = ‘none’;
-        modalDone.style.display = ‘flex’;
+        doneMsgEl.innerHTML = 'Thanks ' + escHtml(firstName) + '. We read every note and write back personally — usually within a few days.';
+        formWrap.style.display = 'none';
+        modalDone.style.display = 'flex';
       } else {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = ‘Send it ‘ + ARROW;
-        setStatus("COULDN’T SEND — TRY AGAIN OR EMAIL LAUNCH@OTOBOT.CO", true);
+        submitBtn.innerHTML = 'Send it ' + ARROW;
+        setStatus("COULDN'T SEND — TRY AGAIN OR EMAIL LAUNCH@OTOBOT.CO", true);
       }
     })
     .catch(function() {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = ‘Send it ‘ + ARROW;
-      setStatus("COULDN’T SEND — TRY AGAIN OR EMAIL LAUNCH@OTOBOT.CO", true);
+      submitBtn.innerHTML = 'Send it ' + ARROW;
+      setStatus("COULDN'T SEND — TRY AGAIN OR EMAIL LAUNCH@OTOBOT.CO", true);
     });
 });
 
